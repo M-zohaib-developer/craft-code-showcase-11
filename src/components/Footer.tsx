@@ -1,50 +1,62 @@
+import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { personalInfo } from "@/data/projects";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const socialLinks = [
+    { icon: Github, href: personalInfo.github, label: "GitHub" },
+    { icon: Linkedin, href: personalInfo.linkedin, label: "LinkedIn" },
+    { icon: Mail, href: `mailto:${personalInfo.email}`, label: "Email" },
+  ];
+
   return (
-    <footer className="border-t border-border bg-card">
-      <div className="section-container py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="text-xl font-semibold text-foreground">
+    <footer className="border-t border-border bg-card relative overflow-hidden">
+      {/* Subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-50" />
+      
+      <div className="section-container py-10 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col md:flex-row items-center justify-between gap-6"
+        >
+          <motion.div 
+            className="flex items-center gap-3"
+            whileHover={{ scale: 1.02 }}
+          >
+            <span className="text-2xl font-bold text-foreground tracking-tight">
               AJ<span className="text-primary">.</span>
             </span>
             <span className="text-muted-foreground text-sm">
               © {currentYear}
             </span>
-          </div>
+          </motion.div>
 
-          <div className="flex items-center gap-4">
-            <a
-              href={personalInfo.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="GitHub"
-            >
-              <Github size={20} />
-            </a>
-            <a
-              href={personalInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="p-2 text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Email"
-            >
-              <Mail size={20} />
-            </a>
+          <div className="flex items-center gap-3">
+            {socialLinks.map((link, index) => (
+              <motion.a
+                key={link.label}
+                href={link.href}
+                target={link.label !== "Email" ? "_blank" : undefined}
+                rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -3, scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-3 rounded-xl bg-secondary/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 border border-transparent hover:border-primary/30"
+                aria-label={link.label}
+              >
+                <link.icon size={20} />
+              </motion.a>
+            ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
