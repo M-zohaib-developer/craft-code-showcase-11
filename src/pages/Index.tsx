@@ -6,12 +6,14 @@ import Projects from "@/sections/Projects";
 import Experience from "@/sections/Experience";
 import Contact from "@/sections/Contact";
 import Footer from "@/components/Footer";
+import ParticleBackground from "@/components/ParticleBackground";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <ParticleBackground />
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <Skills />
