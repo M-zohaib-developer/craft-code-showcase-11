@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Space Grotesk", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
       },
       colors: {
@@ -71,6 +71,11 @@ export default {
         card: "var(--shadow-card)",
         "card-hover": "var(--shadow-card-hover)",
         "hero-image": "var(--shadow-hero-image)",
+        glow: "var(--shadow-glow)",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       keyframes: {
         "accordion-down": {
@@ -82,19 +87,35 @@ export default {
           to: { height: "0" },
         },
         "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "0%": { opacity: "0", transform: "translateY(30px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "fade-in": {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.5", transform: "scale(1)" },
+          "50%": { opacity: "0.8", transform: "scale(1.05)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+        "border-flow": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-up": "fade-up 0.5s ease-out",
+        "fade-up": "fade-up 0.6s ease-out",
         "fade-in": "fade-in 0.5s ease-out",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
+        "border-flow": "border-flow 3s ease infinite",
       },
     },
   },
