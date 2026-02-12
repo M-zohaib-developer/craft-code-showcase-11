@@ -1,49 +1,30 @@
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/projects";
-
-const projectVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 120,
-    rotateX: 15,
-    scale: 0.9
-  },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    rotateX: 0,
-    scale: 1,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.9,
-      ease: "easeOut" as const
-    }
-  })
-};
+import { useInView } from "@/hooks/use-in-view";
 
 const Projects = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const inView = useInView(sectionRef, { amount: 0.2 });
+  const showCards = inView;
+
   return (
-    <section id="projects" className="section-padding relative overflow-hidden">
-      {/* Animated background */}
+    <section ref={sectionRef} id="projects" className="section-padding relative overflow-hidden">
+      {/* Animated background - scroll once */}
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         whileInView={{ opacity: 0.08, scale: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 1.5 }}
         className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary rounded-full blur-[150px]"
-      />
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-20 left-10 w-[150px] h-[150px] border border-primary/15 rounded-full"
       />
 
       <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
@@ -80,11 +61,16 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.article
               key={project.id}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={projectVariants}
+              initial={{ x: -80, opacity: 0 }}
+              animate={{
+                x: showCards ? 0 : 100,
+                opacity: showCards ? 1 : 0,
+              }}
+              transition={{
+                delay: showCards ? index * 0.12 : 0,
+                duration: 0.5,
+                ease: "easeOut",
+              }}
               whileHover={{ 
                 y: -15, 
                 scale: 1.02,
@@ -101,8 +87,13 @@ const Projects = () => {
               
               {/* Project Image */}
               <div className="aspect-video bg-secondary/50 relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/20"
+                  className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10 pointer-events-none"
                   initial={{ scale: 1.2, opacity: 0.5 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   viewport={{ once: true }}

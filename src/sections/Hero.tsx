@@ -171,17 +171,34 @@ const Hero = () => {
                 10
               </motion.div>
 
-              {/* Image placeholder */}
-              <div className="relative w-80 h-96 md:w-96 md:h-[500px] rounded-2xl overflow-hidden bg-gradient-to-br from-secondary to-muted">
+              {/* Profile image with border */}
+              <div className="relative w-80 h-96 md:w-96 md:h-[500px] rounded-2xl overflow-hidden bg-gradient-to-br from-secondary to-muted ring-4 ring-primary/30 ring-offset-4 ring-offset-background shadow-xl">
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                 
-                {/* Placeholder content */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-muted-foreground/20 flex items-center justify-center">
-                      <span className="text-4xl font-bold text-muted-foreground">AJ</span>
-                    </div>
-                  </div>
+                {/* Profile picture with animation */}
+                <div className="absolute inset-0 flex items-center justify-center p-4">
+                  <motion.div
+                    className="w-full h-full rounded-xl overflow-hidden"
+                    initial={{ opacity: 0, scale: 0.88 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      opacity: { duration: 0.5, ease: "easeOut" },
+                      scale: { duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
+                    }}
+                  >
+                    <motion.img
+                      src="/image%20copy.png"
+                      alt="Profile"
+                      className="w-full h-full object-cover object-center"
+                      animate={{ scale: [1, 1.04, 1] }}
+                      transition={{
+                        duration: 3.5,
+                        repeat: Infinity,
+                        repeatDelay: 0.8,
+                        ease: "easeInOut",
+                      }}
+                    />
+                  </motion.div>
                 </div>
               </div>
 
@@ -192,11 +209,10 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 1 }}
                 className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap"
               >
-                <span className="text-sm tracking-[0.5em] text-muted-foreground uppercase">
-                  years of experience
-                </span>
+                
               </motion.div>
             </div>
+          
 
             {/* Additional floating elements */}
             <motion.div

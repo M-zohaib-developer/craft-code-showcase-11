@@ -1,38 +1,23 @@
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Calendar, Code2 } from "lucide-react";
 import { personalInfo } from "@/data/projects";
-
-const cardVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 100,
-    rotateX: 15,
-    scale: 0.8
-  },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    rotateX: 0,
-    scale: 1,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.8,
-      ease: "easeOut" as const
-    }
-  })
-};
+import { useInView } from "@/hooks/use-in-view";
 
 const About = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const inView = useInView(sectionRef, { amount: 0.2 });
+  const showCards = inView;
   const items = [
     {
       icon: Calendar,
       title: "Experience",
-      description: "6+ years of professional software development across various industries and project scales.",
+      description: "Experience in software development across diverse industries and project scales.",
     },
     {
       icon: Code2,
       title: "Focus",
-      description: "React ecosystem, TypeScript, and Node.js. Building scalable web applications with clean architecture.",
+      description: "Specializing in the React ecosystem (React, Next.js, React Native), TypeScript, and Node.js, building scalable web and mobile applications with clean architecture..",
     },
     {
       icon: MapPin,
@@ -42,12 +27,12 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="section-padding relative overflow-hidden">
-      {/* Background decoration */}
+    <section ref={sectionRef} id="about" className="section-padding relative overflow-hidden">
+      {/* Background decoration - scroll once */}
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         whileInView={{ opacity: 0.08, scale: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 1.5 }}
         className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary rounded-full blur-[150px]"
       />
@@ -56,7 +41,7 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-3xl"
         >
@@ -93,11 +78,16 @@ const About = () => {
           {items.map((item, index) => (
             <motion.div
               key={item.title}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={cardVariants}
+              initial={{ x: -80, opacity: 0 }}
+              animate={{
+                x: showCards ? 0 : 100,
+                opacity: showCards ? 1 : 0,
+              }}
+              transition={{
+                delay: showCards ? index * 0.12 : 0,
+                duration: 0.5,
+                ease: "easeOut",
+              }}
               whileHover={{ 
                 y: -15, 
                 scale: 1.02,
@@ -117,17 +107,10 @@ const About = () => {
               <motion.div 
                 initial={{ scale: 0, rotate: -180 }}
                 whileInView={{ scale: 1, rotate: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: index * 0.2 + 0.3, type: "spring", stiffness: 200 }}
                 className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 relative"
               >
-                <motion.div
-                  animate={{ 
-                    boxShadow: ["0 0 0 0 hsl(38 100% 55% / 0)", "0 0 0 10px hsl(38 100% 55% / 0.1)", "0 0 0 0 hsl(38 100% 55% / 0)"]
-                  }}
-                  transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
-                  className="absolute inset-0 rounded-xl"
-                />
                 <item.icon className="w-7 h-7 text-primary" />
               </motion.div>
               
@@ -154,10 +137,16 @@ const About = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 100, scale: 0.95 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
+          initial={{ x: -80, opacity: 0 }}
+          animate={{
+            x: showCards ? 0 : 100,
+            opacity: showCards ? 1 : 0,
+          }}
+          transition={{
+            delay: showCards ? 0.25 : 0,
+            duration: 0.5,
+            ease: "easeOut",
+          }}
           whileHover={{ scale: 1.01 }}
           className="bg-card rounded-2xl p-8 md:p-10 border border-border relative overflow-hidden"
         >

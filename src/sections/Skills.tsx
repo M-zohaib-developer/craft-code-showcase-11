@@ -1,74 +1,29 @@
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { skillCategories } from "@/data/projects";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
-
-const cardVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 100,
-    rotateX: 20,
-    scale: 0.85
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    rotateX: 0,
-    scale: 1,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut" as const
-    }
-  }
-};
-
-const skillVariants = {
-  hidden: { opacity: 0, scale: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.05,
-      duration: 0.4,
-      type: "spring" as const,
-      stiffness: 200
-    }
-  })
-};
+import { useInView } from "@/hooks/use-in-view";
 
 const Skills = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const inView = useInView(sectionRef, { amount: 0.2 });
+  const showCards = inView;
+
   return (
-    <section id="skills" className="section-padding bg-secondary/20 relative overflow-hidden">
+    <section ref={sectionRef} id="skills" className="section-padding bg-secondary/20 relative overflow-hidden">
       {/* Animated background */}
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         whileInView={{ opacity: 0.06, scale: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 1.5 }}
         className="absolute bottom-0 left-1/4 w-[700px] h-[700px] bg-primary rounded-full blur-[180px]"
-      />
-      <motion.div
-        animate={{
-          rotate: 360,
-        }}
-        transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-        className="absolute top-20 right-20 w-[200px] h-[200px] border border-primary/10 rounded-full"
       />
 
       <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -101,17 +56,20 @@ const Skills = () => {
           </motion.p>
         </motion.div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid md:grid-cols-3 gap-8"
-        >
+        <div className="grid md:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
-              variants={cardVariants}
+              initial={{ x: -80, opacity: 0 }}
+              animate={{
+                x: showCards ? 0 : 100,
+                opacity: showCards ? 1 : 0,
+              }}
+              transition={{
+                delay: showCards ? categoryIndex * 0.12 : 0,
+                duration: 0.5,
+                ease: "easeOut",
+              }}
               whileHover={{ 
                 y: -12, 
                 scale: 1.02,
@@ -130,17 +88,15 @@ const Skills = () => {
               {/* Animated accent line */}
               <motion.div
                 initial={{ width: 0 }}
-                whileInView={{ width: "80px" }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: categoryIndex * 0.2 + 0.3 }}
+                animate={{ width: showCards ? "80px" : 0 }}
+                transition={{ duration: 0.5, delay: showCards ? categoryIndex * 0.12 + 0.15 : 0 }}
                 className="h-1.5 bg-gradient-to-r from-primary to-yellow-400 rounded-full mb-8"
               />
               
               <motion.h3 
                 initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: categoryIndex * 0.2 + 0.2 }}
+                animate={{ opacity: showCards ? 1 : 0, x: showCards ? 0 : -30 }}
+                transition={{ delay: showCards ? categoryIndex * 0.12 + 0.2 : 0, duration: 0.4 }}
                 className="font-bold text-xl text-foreground mb-8 group-hover:text-primary transition-colors relative"
               >
                 {category.title}
@@ -150,11 +106,15 @@ const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skill.name}
-                    custom={skillIndex}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={skillVariants}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{
+                      opacity: showCards ? 1 : 0,
+                      scale: showCards ? 1 : 0.9,
+                    }}
+                    transition={{
+                      delay: showCards ? categoryIndex * 0.12 + skillIndex * 0.04 : 0,
+                      duration: 0.35,
+                    }}
                     whileHover={{ 
                       scale: 1.08,
                       y: -5,
@@ -168,7 +128,7 @@ const Skills = () => {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

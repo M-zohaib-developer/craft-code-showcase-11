@@ -41,7 +41,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400 }}
           >
-            AJ<span className="text-primary">.</span>
+            MZ<span className="text-primary">.</span>
           </motion.a>
 
           {/* Desktop Navigation */}

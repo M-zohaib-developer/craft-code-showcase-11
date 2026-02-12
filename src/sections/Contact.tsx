@@ -1,6 +1,8 @@
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, MapPin, ArrowUpRight } from "lucide-react";
 import { personalInfo } from "@/data/projects";
+import { useInView } from "@/hooks/use-in-view";
 
 const contactLinks = [
   {
@@ -12,47 +14,51 @@ const contactLinks = [
   {
     icon: Github,
     label: "GitHub",
-    value: "github.com/username",
+    value: "github.com/M-zohaib-developer",
     href: personalInfo.github,
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "linkedin.com/in/username",
+    value: "linkedin.com/in/muhammad-zohaib-1a6972234/",
     href: personalInfo.linkedin,
   },
 ];
 
 const Contact = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  // Lower threshold + rootMargin so section triggers at bottom of page
+  const inView = useInView(sectionRef, { amount: 0.05, rootMargin: "0px 0px 80px 0px" });
+  const showCards = inView;
+
   return (
-    <section id="contact" className="section-padding relative overflow-hidden">
-      {/* Background decorations */}
+    <section ref={sectionRef} id="contact" className="section-padding relative overflow-hidden">
+      {/* Background - scroll once */}
       <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.02, 0.05, 0.02],
-        }}
-        transition={{ duration: 8, repeat: Infinity }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 0.05, scale: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1.2 }}
         className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-primary rounded-full blur-3xl"
       />
 
       <div className="section-container relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
+          initial={{ x: -60, opacity: 0 }}
+          animate={{
+            x: showCards ? 0 : 80,
+            opacity: showCards ? 1 : 0,
+          }}
+          transition={{
+            delay: showCards ? 0 : 0,
+            duration: 0.5,
+            ease: "easeOut",
+          }}
           className="text-center mb-16"
         >
-          <motion.span
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-primary font-mono text-sm tracking-[0.3em] uppercase mb-4 block"
-          >
+          <span className="text-primary font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
             Get In Touch
-          </motion.span>
+          </span>
           <h2 className="section-title">Contact</h2>
           <p className="section-subtitle mx-auto">
             You can reach me through the following platforms
@@ -60,10 +66,16 @@ const Contact = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.7, delay: 0.1 }}
+          initial={{ x: -80, opacity: 0 }}
+          animate={{
+            x: showCards ? 0 : 100,
+            opacity: showCards ? 1 : 0,
+          }}
+          transition={{
+            delay: showCards ? 0.15 : 0,
+            duration: 0.5,
+            ease: "easeOut",
+          }}
           className="max-w-2xl mx-auto"
         >
           <div className="bg-card rounded-2xl border border-border p-8 md:p-10 relative overflow-hidden">
@@ -77,10 +89,12 @@ const Contact = () => {
                   href={link.href}
                   target={link.label !== "Email" ? "_blank" : undefined}
                   rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
-                  initial={{ opacity: 0, x: -40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.15 }}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{
+                    opacity: showCards ? 1 : 0,
+                    x: showCards ? 0 : 30,
+                  }}
+                  transition={{ duration: 0.4, delay: showCards ? index * 0.1 + 0.2 : 0 }}
                   whileHover={{ x: 8 }}
                   className="flex items-center justify-between p-5 rounded-xl hover:bg-secondary/50 transition-all duration-300 group border border-transparent hover:border-border"
                 >
@@ -109,10 +123,12 @@ const Contact = () => {
               ))}
 
               <motion.div 
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.45 }}
+                initial={{ opacity: 0, x: -30 }}
+                animate={{
+                  opacity: showCards ? 1 : 0,
+                  x: showCards ? 0 : 30,
+                }}
+                transition={{ duration: 0.4, delay: showCards ? 0.5 : 0 }}
                 className="flex items-center gap-5 p-5"
               >
                 <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center">

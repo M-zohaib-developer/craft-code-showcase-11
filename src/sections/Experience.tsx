@@ -1,53 +1,29 @@
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { experiences } from "@/data/projects";
-
-const experienceVariants = {
-  hidden: { 
-    opacity: 0, 
-    x: -100,
-    rotateY: 15,
-    scale: 0.9
-  },
-  visible: (i: number) => ({
-    opacity: 1,
-    x: 0,
-    rotateY: 0,
-    scale: 1,
-    transition: {
-      delay: i * 0.25,
-      duration: 0.9,
-      ease: "easeOut" as const
-    }
-  })
-};
+import { useInView } from "@/hooks/use-in-view";
 
 const Experience = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const inView = useInView(sectionRef, { amount: 0.2 });
+  const showCards = inView;
+
   return (
-    <section id="experience" className="section-padding bg-secondary/20 relative overflow-hidden">
-      {/* Animated background elements */}
+    <section ref={sectionRef} id="experience" className="section-padding bg-secondary/20 relative overflow-hidden">
+      {/* Animated background - scroll once */}
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         whileInView={{ opacity: 0.06, scale: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 1.5 }}
         className="absolute top-1/3 left-0 w-[600px] h-[600px] bg-primary rounded-full blur-[180px]"
-      />
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-        className="absolute -top-20 -right-20 w-[300px] h-[300px] border border-primary/10 rounded-full"
-      />
-      <motion.div
-        animate={{ rotate: -360 }}
-        transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-        className="absolute -bottom-32 -left-32 w-[400px] h-[400px] border border-primary/5 rounded-full"
       />
 
       <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
@@ -84,38 +60,44 @@ const Experience = () => {
           {/* Animated timeline line */}
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            whileInView={{ height: "100%", opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 2, ease: "easeOut" }}
+            animate={{
+              height: showCards ? "100%" : 0,
+              opacity: showCards ? 1 : 0,
+            }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="absolute left-0 md:left-8 top-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-transparent hidden md:block"
           />
 
           {experiences.map((experience, index) => (
             <motion.div
               key={experience.id}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={experienceVariants}
+              initial={{ x: -80, opacity: 0 }}
+              animate={{
+                x: showCards ? 0 : 100,
+                opacity: showCards ? 1 : 0,
+              }}
+              transition={{
+                delay: showCards ? index * 0.15 : 0,
+                duration: 0.5,
+                ease: "easeOut",
+              }}
               className="relative md:pl-24"
             >
-              {/* Animated timeline dot */}
+              {/* Timeline dot */}
               <motion.div
                 initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.25 + 0.4, type: "spring", stiffness: 300 }}
+                animate={{
+                  scale: showCards ? 1 : 0,
+                  opacity: showCards ? 1 : 0,
+                }}
+                transition={{
+                  delay: showCards ? index * 0.15 + 0.2 : 0,
+                  type: "spring",
+                  stiffness: 300,
+                }}
                 className="absolute left-0 md:left-6 top-10 w-6 h-6 bg-background border-3 border-primary rounded-full hidden md:flex items-center justify-center z-10"
               >
-                <motion.div 
-                  animate={{ 
-                    scale: [1, 1.5, 1],
-                    opacity: [1, 0.5, 1]
-                  }}
-                  transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
-                  className="w-2.5 h-2.5 bg-primary rounded-full" 
-                />
+                <div className="w-2.5 h-2.5 bg-primary rounded-full" />
               </motion.div>
 
               <motion.div

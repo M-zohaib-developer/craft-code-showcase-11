@@ -29,7 +29,7 @@ const Footer = () => {
             whileHover={{ scale: 1.02 }}
           >
             <span className="text-2xl font-bold text-foreground tracking-tight">
-              AJ<span className="text-primary">.</span>
+              MZ<span className="text-primary">.</span>
             </span>
             <span className="text-muted-foreground text-sm">
               © {currentYear}
