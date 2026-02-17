@@ -27,7 +27,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-primary font-mono text-sm mb-6 tracking-[0.3em] uppercase"
+              className="text-primary font-mono text-lg md:text-xl mb-6 tracking-[0.3em] uppercase font-bold"
             >
               Full Stack Developer
             </motion.p>
