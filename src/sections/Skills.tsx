@@ -56,7 +56,7 @@ const Skills = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
@@ -102,7 +102,7 @@ const Skills = () => {
                 {category.title}
               </motion.h3>
               
-              <div className="grid grid-cols-2 gap-3 relative">
+              <div className="flex flex-wrap gap-2.5 relative">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skill.name}
@@ -120,7 +120,7 @@ const Skills = () => {
                       y: -5,
                       boxShadow: "0 10px 20px -5px hsl(38 100% 55% / 0.2)",
                     }}
-                    className="bg-secondary/60 rounded-xl px-4 py-3.5 text-center text-sm font-medium text-foreground cursor-pointer border border-transparent hover:border-primary/40 hover:bg-primary/10 transition-all duration-300"
+                    className="bg-secondary/60 rounded-xl px-4 py-2.5 text-sm font-medium text-foreground cursor-pointer border border-transparent hover:border-primary/40 hover:bg-primary/10 transition-all duration-300 whitespace-nowrap"
                   >
                     {skill.name}
                   </motion.div>
