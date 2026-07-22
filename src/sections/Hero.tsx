@@ -1,240 +1,182 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Github, Linkedin, Check } from "lucide-react";
-import { personalInfo } from "@/data/projects";
+import { ArrowUpRight, Github, Linkedin, Mail, Sparkles, Code2, Zap } from "lucide-react";
+import { personalInfo, projects, experiences } from "@/data/projects";
 
 const Hero = () => {
-  const features = [
-    "Clean Code",
-    "Modern Design",
-    "Fast Performance",
+  const stats = [
+    { label: "Projects", value: `${projects.length}+` },
+    { label: "Stack Depth", value: "Full" },
+    { label: "Focus", value: "React · Node" },
   ];
 
   return (
-    <section className="min-h-screen flex items-center pt-20 pb-10 overflow-hidden relative">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
-      
+    <section id="home" className="min-h-screen pt-28 pb-16 relative overflow-hidden">
+      {/* Ambient glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-primary/10 blur-[140px] rounded-full" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary-glow/5 blur-[120px] rounded-full" />
+      </div>
+
       <div className="section-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          {/* Text Content */}
+        {/* Top meta bar */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-wrap items-center justify-between gap-4 mb-8"
+        >
+          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.3em] text-muted-foreground">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            Available for work · {personalInfo.location}
+          </div>
+          <div className="text-xs font-mono uppercase tracking-[0.3em] text-muted-foreground">
+            {new Date().getFullYear()} / Portfolio v2
+          </div>
+        </motion.div>
+
+        {/* Bento grid */}
+        <div className="grid grid-cols-12 gap-4 md:gap-5 auto-rows-[minmax(120px,auto)]">
+
+          {/* Name / Title — hero cell */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, staggerChildren: 0.15 }}
-            className="relative z-10"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.05 }}
+            className="col-span-12 lg:col-span-8 row-span-2 bento-card p-8 md:p-10 flex flex-col justify-between min-h-[380px]"
           >
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-primary font-mono text-lg md:text-xl mb-6 tracking-[0.3em] uppercase font-bold"
-            >
-              Full Stack Developer
-            </motion.p>
-            
-            <motion.h1 
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-[1.1]"
-            >
-              Building{" "}
-              <span className="italic font-light text-primary">exceptional</span>
-              <br />
-              digital experiences
-            </motion.h1>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-muted-foreground text-lg md:text-xl mb-8 leading-relaxed max-w-xl"
-            >
-              {personalInfo.bio}
-            </motion.p>
-
-            {/* Feature checks */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-6 mb-10"
-            >
-              {features.map((feature) => (
-                <div key={feature} className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center">
-                    <Check size={12} className="text-primary" />
-                  </div>
-                  <span className="text-sm text-muted-foreground">{feature}</span>
-                </div>
-              ))}
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-wrap gap-4 mb-10"
-            >
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-mono uppercase tracking-widest mb-6">
+                <Sparkles size={12} /> Full Stack Developer
+              </div>
+              <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight text-foreground">
+                {personalInfo.name.split(" ")[0]}
+                <br />
+                <span className="italic font-light text-gradient">
+                  {personalInfo.name.split(" ").slice(1).join(" ")}.
+                </span>
+              </h1>
+            </div>
+            <div className="flex flex-wrap items-end justify-between gap-6 mt-8">
+              <p className="text-muted-foreground max-w-md leading-relaxed text-sm md:text-base">
+                Crafting resilient web & mobile products with the React ecosystem, TypeScript, and Node — from schema to pixel.
+              </p>
               <a
                 href="#projects"
-                className="group inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:gap-4 hover:shadow-lg hover:shadow-primary/25"
+                className="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:gap-4 transition-all"
               >
-                View Projects
-                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                Explore Work
+                <ArrowUpRight size={16} className="transition-transform group-hover:rotate-45" />
               </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-border text-foreground rounded-full font-semibold transition-all duration-300 hover:bg-secondary hover:border-muted-foreground"
-              >
-                Contact Me
-              </a>
-            </motion.div>
-
-            {/* Social Links */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex items-center gap-6"
-            >
-              <a
-                href={personalInfo.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
-                aria-label="GitHub"
-              >
-                <Github size={20} />
-              </a>
-              <a
-                href={personalInfo.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
-            </motion.div>
+            </div>
           </motion.div>
 
-          {/* Hero Image with Decorations */}
+          {/* Portrait cell */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, x: 50 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative flex items-center justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="col-span-12 sm:col-span-6 lg:col-span-4 row-span-3 bento-card p-0 min-h-[380px] group"
           >
-            {/* Main Image Container */}
-            <div className="relative">
-              {/* Decorative bracket left */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute -left-8 top-1/4 text-primary/60"
-              >
-                <svg width="60" height="120" viewBox="0 0 60 120" fill="none">
-                  <path d="M50 10 L20 10 L20 110 L50 110" stroke="currentColor" strokeWidth="3" fill="none" />
-                </svg>
-              </motion.div>
-
-              {/* Decorative bracket right */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.9 }}
-                className="absolute -right-8 top-1/4 text-primary/60"
-              >
-                <svg width="60" height="120" viewBox="0 0 60 120" fill="none">
-                  <path d="M10 10 L40 10 L40 110 L10 110" stroke="currentColor" strokeWidth="3" fill="none" />
-                </svg>
-              </motion.div>
-
-              {/* Floating circle decoration */}
-              <motion.div
-                animate={{
-                  y: [-10, 10, -10],
-                }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -right-4 top-1/3 w-32 h-32 border-2 border-primary/30 rounded-full"
+            <div className="relative w-full h-full overflow-hidden rounded-2xl">
+              <img
+                src="/image%20copy.png"
+                alt={personalInfo.name}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-
-              {/* Large number background */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 0.15, x: 0 }}
-                transition={{ duration: 1, delay: 0.5 }}
-                className="absolute -top-10 -right-10 text-[180px] font-bold text-primary leading-none select-none pointer-events-none"
-              >
-                10
-              </motion.div>
-
-              {/* Profile image with border */}
-              <div className="relative w-80 h-96 md:w-96 md:h-[500px] rounded-2xl overflow-hidden bg-gradient-to-br from-secondary to-muted ring-4 ring-primary/30 ring-offset-4 ring-offset-background shadow-xl">
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-                
-                {/* Profile picture with animation */}
-                <div className="absolute inset-0 flex items-center justify-center p-4">
-                  <motion.div
-                    className="w-full h-full rounded-xl overflow-hidden"
-                    initial={{ opacity: 0, scale: 0.88 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      opacity: { duration: 0.5, ease: "easeOut" },
-                      scale: { duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
-                    }}
-                  >
-                    <motion.img
-                      src="/image%20copy.png"
-                      alt="Profile"
-                      className="w-full h-full object-cover object-center"
-                      animate={{ scale: [1, 1.04, 1] }}
-                      transition={{
-                        duration: 3.5,
-                        repeat: Infinity,
-                        repeatDelay: 0.8,
-                        ease: "easeInOut",
-                      }}
-                    />
-                  </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+              <div className="absolute inset-0 noise-grain opacity-[0.08] mix-blend-overlay" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-xs font-mono uppercase tracking-widest text-primary mb-1">Signed</div>
+                    <div className="font-display font-semibold text-lg text-foreground">{personalInfo.name}</div>
+                  </div>
+                  <div className="w-10 h-10 rounded-full border border-primary/50 flex items-center justify-center text-primary">
+                    <Zap size={16} />
+                  </div>
                 </div>
               </div>
-
-              {/* Years of experience text */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1 }}
-                className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap"
-              >
-                
-              </motion.div>
             </div>
-          
+          </motion.div>
 
-            {/* Additional floating elements */}
+          {/* Stats trio */}
+          {stats.map((s, i) => (
             <motion.div
-              animate={{
-                rotate: 360,
-              }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute top-10 right-10 w-16 h-16 border border-primary/20 rounded-lg"
-            />
+              key={s.label}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 + i * 0.08 }}
+              className="col-span-4 lg:col-span-4 lg:col-start-auto bento-card p-5 flex flex-col justify-between min-h-[120px]"
+            >
+              <div className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-muted-foreground">
+                {s.label}
+              </div>
+              <div className="font-display font-bold text-2xl md:text-3xl text-foreground">
+                {s.value}
+              </div>
+            </motion.div>
+          ))}
+
+          {/* About mini */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="col-span-12 md:col-span-8 lg:col-span-5 bento-card p-6 min-h-[160px]"
+          >
+            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-primary mb-3">
+              <Code2 size={14} /> About
+            </div>
+            <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
+              {personalInfo.bio}
+            </p>
+          </motion.div>
+
+          {/* Contact / socials */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="col-span-12 md:col-span-4 lg:col-span-3 bento-card p-6 flex flex-col justify-between min-h-[160px]"
+          >
+            <div className="text-xs font-mono uppercase tracking-[0.25em] text-muted-foreground mb-4">
+              Connect
+            </div>
+            <div className="flex gap-3">
+              <a href={`mailto:${personalInfo.email}`} className="flex-1 aspect-square rounded-xl border border-border hover:border-primary hover:bg-primary/5 flex items-center justify-center text-muted-foreground hover:text-primary transition-all" aria-label="Email">
+                <Mail size={18} />
+              </a>
+              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="flex-1 aspect-square rounded-xl border border-border hover:border-primary hover:bg-primary/5 flex items-center justify-center text-muted-foreground hover:text-primary transition-all" aria-label="GitHub">
+                <Github size={18} />
+              </a>
+              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="flex-1 aspect-square rounded-xl border border-border hover:border-primary hover:bg-primary/5 flex items-center justify-center text-muted-foreground hover:text-primary transition-all" aria-label="LinkedIn">
+                <Linkedin size={18} />
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Latest role */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="col-span-12 lg:col-span-4 bento-card p-6 min-h-[160px] flex flex-col justify-between"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="text-xs font-mono uppercase tracking-[0.25em] text-primary">Now</div>
+              <div className="text-xs font-mono text-muted-foreground">{experiences[0].period}</div>
+            </div>
+            <div>
+              <div className="font-display font-semibold text-lg text-foreground leading-tight">
+                {experiences[0].role}
+              </div>
+              <div className="text-sm text-muted-foreground mt-1">
+                {experiences[0].company}
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
-
-      {/* Animated background elements */}
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.03, 0.06, 0.03],
-        }}
-        transition={{ duration: 8, repeat: Infinity }}
-        className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl"
-      />
     </section>
   );
 };
