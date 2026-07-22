@@ -152,9 +152,35 @@
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary via-yellow-400 to-primary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary-glow via-primary to-primary-glow bg-clip-text text-transparent;
     background-size: 200% auto;
-    animation: shimmer 3s linear infinite;
+    animation: shimmer 4s linear infinite;
+  }
+
+  .bento-card {
+    @apply relative overflow-hidden rounded-2xl border border-border/60 bg-card/70 backdrop-blur-sm transition-all duration-500;
+    box-shadow: var(--shadow-card);
+  }
+
+  .bento-card:hover {
+    @apply border-primary/40 -translate-y-1;
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .bento-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 0%), hsl(43 52% 54% / 0.08), transparent 40%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .bento-card:hover::before { opacity: 1; }
+
+  .noise-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
   }
 
   @keyframes shimmer {
