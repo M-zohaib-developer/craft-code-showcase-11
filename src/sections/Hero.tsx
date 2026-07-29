@@ -1,181 +1,236 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Github, Linkedin, Mail, Sparkles, Code2, Zap } from "lucide-react";
 import { personalInfo, projects, experiences } from "@/data/projects";
+import { useRef } from "react";
+import { useInView } from "@/hooks/use-in-view";
 
 const Hero = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { amount: 0.2 });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   const stats = [
     { label: "Projects", value: `${projects.length}+` },
     { label: "Stack Depth", value: "Full" },
-    { label: "Focus", value: "React · Node" },
+    { label: "Focus", value: "Node · Next.js · React.js" },
   ];
 
   return (
-    <section id="home" className="min-h-screen pt-28 pb-16 relative overflow-hidden">
+    <section id="home" className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden" ref={ref}>
       {/* Ambient glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-primary/10 blur-[140px] rounded-full" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary-glow/5 blur-[120px] rounded-full" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full" />
       </div>
 
-      <div className="section-container relative z-10">
-        {/* Top meta bar */}
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Status Bar */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-wrap items-center justify-between gap-4 mb-8"
+          variants={itemVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4"
         >
-          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.3em] text-muted-foreground">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            Available for work · {personalInfo.location}
+          <div className="flex items-center gap-3">
+            <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
+            <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+              Available For Work • {personalInfo.location}
+            </span>
           </div>
-          <div className="text-xs font-mono uppercase tracking-[0.3em] text-muted-foreground">
-            {new Date().getFullYear()} / Portfolio v2
+          <div className="text-xs font-mono text-muted-foreground tracking-widest">
+            {new Date().getFullYear()} / PORTFOLIO V2
           </div>
         </motion.div>
 
         {/* Bento grid */}
-        <div className="grid grid-cols-12 gap-4 md:gap-5 auto-rows-[minmax(120px,auto)]">
-
-          {/* Name / Title — hero cell */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-12 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
+          {/* Main Intro Card */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.05 }}
-            className="col-span-12 lg:col-span-8 row-span-2 bento-card p-8 md:p-10 flex flex-col justify-between min-h-[380px]"
+            variants={itemVariants}
+            className="md:col-span-8 bento-card rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[400px]"
           >
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-mono uppercase tracking-widest mb-6">
-                <Sparkles size={12} /> Full Stack Developer
+              <div className="inline-flex items-center gap-2 border border-primary/30 rounded-full px-4 py-2 mb-8 bg-primary/5">
+                <Sparkles size={14} className="text-primary" />
+                <span className="text-xs font-mono uppercase tracking-widest text-primary">Full Stack Developer</span>
               </div>
-              <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight text-foreground">
+              <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight text-foreground mb-8">
                 {personalInfo.name.split(" ")[0]}
                 <br />
-                <span className="italic font-light text-gradient">
+                <span className="text-gradient italic font-light">
                   {personalInfo.name.split(" ").slice(1).join(" ")}.
                 </span>
               </h1>
-            </div>
-            <div className="flex flex-wrap items-end justify-between gap-6 mt-8">
               <p className="text-muted-foreground max-w-md leading-relaxed text-sm md:text-base">
                 Crafting resilient web & mobile products with the React ecosystem, TypeScript, and Node — from schema to pixel.
               </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-4 mt-12">
               <a
                 href="#projects"
-                className="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:gap-4 transition-all"
+                className="group inline-flex items-center gap-3 px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:shadow-lg transition-all"
               >
                 Explore Work
-                <ArrowUpRight size={16} className="transition-transform group-hover:rotate-45" />
+                <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </a>
+              <button className="px-8 py-3 rounded-full border border-border hover:bg-primary/5 font-semibold transition-all">
+                Download CV
+              </button>
             </div>
           </motion.div>
 
-          {/* Portrait cell */}
+          {/* Profile Image Card */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="col-span-12 sm:col-span-6 lg:col-span-4 row-span-3 bento-card p-0 min-h-[380px] group"
+            variants={itemVariants}
+            className="md:col-span-4 bento-card rounded-2xl overflow-hidden relative group min-h-[400px]"
           >
-            <div className="relative w-full h-full overflow-hidden rounded-2xl">
+            <div className="relative w-full h-full overflow-hidden">
               <img
-                src="/image%20copy.png"
+                src="/image-copy.png"
                 alt={personalInfo.name}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
               <div className="absolute inset-0 noise-grain opacity-[0.08] mix-blend-overlay" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <div className="flex items-center justify-between">
+                <div className="flex justify-between items-end">
                   <div>
-                    <div className="text-xs font-mono uppercase tracking-widest text-primary mb-1">Signed</div>
-                    <div className="font-display font-semibold text-lg text-foreground">{personalInfo.name}</div>
+                    <span className="text-xs font-mono uppercase tracking-widest text-primary block mb-1">Signed</span>
+                    <span className="font-display font-semibold text-lg text-foreground">{personalInfo.name}</span>
                   </div>
-                  <div className="w-10 h-10 rounded-full border border-primary/50 flex items-center justify-center text-primary">
-                    <Zap size={16} />
+                  <div className="bg-primary/20 backdrop-blur-md p-3 rounded-full border border-primary/30">
+                    <Zap size={16} className="text-primary" />
                   </div>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Stats trio */}
-          {stats.map((s, i) => (
+          {/* Stats Row */}
+          {stats.slice(0, 2).map((s, i) => (
             <motion.div
               key={s.label}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 + i * 0.08 }}
-              className="col-span-4 lg:col-span-4 lg:col-start-auto bento-card p-5 flex flex-col justify-between min-h-[120px]"
+              variants={itemVariants}
+              className="md:col-span-3 bento-card rounded-2xl p-8"
             >
-              <div className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-muted-foreground">
+              <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground block mb-8">
                 {s.label}
-              </div>
-              <div className="font-display font-bold text-2xl md:text-3xl text-foreground">
+              </span>
+              <span className="font-display text-5xl md:text-6xl font-bold text-foreground">
                 {s.value}
-              </div>
+              </span>
             </motion.div>
           ))}
 
-          {/* About mini */}
+          {/* Focus Card */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="col-span-12 md:col-span-8 lg:col-span-5 bento-card p-6 min-h-[160px]"
+            variants={itemVariants}
+            className="md:col-span-6 bento-card rounded-2xl p-8 flex flex-col justify-end"
           >
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-primary mb-3">
-              <Code2 size={14} /> About
+            <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground block mb-8">
+              Focus
+            </span>
+            <div className="flex flex-wrap gap-x-4 gap-y-2">
+              <span className="font-display text-4xl text-foreground">Node</span>
+              <span className="font-display text-4xl text-primary/40">•</span>
+              <span className="font-display text-4xl text-foreground">Next.js</span>
+              <span className="font-display text-4xl text-primary/40">•</span>
+              <span className="font-display text-4xl text-foreground">React.js</span>
             </div>
-            <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
+          </motion.div>
+
+          {/* About Summary Card */}
+          <motion.div
+            variants={itemVariants}
+            className="md:col-span-6 bento-card rounded-2xl p-8"
+          >
+            <div className="flex items-center gap-2 mb-6">
+              <Code2 size={18} className="text-primary" />
+              <span className="text-xs font-mono uppercase tracking-widest text-primary">About</span>
+            </div>
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
               {personalInfo.bio}
             </p>
           </motion.div>
 
-          {/* Contact / socials */}
+          {/* Connect Card */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="col-span-12 md:col-span-4 lg:col-span-3 bento-card p-6 flex flex-col justify-between min-h-[160px]"
+            variants={itemVariants}
+            className="md:col-span-3 bento-card rounded-2xl p-8"
           >
-            <div className="text-xs font-mono uppercase tracking-[0.25em] text-muted-foreground mb-4">
+            <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground block mb-8">
               Connect
-            </div>
-            <div className="flex gap-3">
-              <a href={`mailto:${personalInfo.email}`} className="flex-1 aspect-square rounded-xl border border-border hover:border-primary hover:bg-primary/5 flex items-center justify-center text-muted-foreground hover:text-primary transition-all" aria-label="Email">
-                <Mail size={18} />
+            </span>
+            <div className="grid grid-cols-3 gap-4">
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="aspect-square flex items-center justify-center border border-border rounded-lg hover:border-primary/50 hover:bg-primary/5 transition-all text-muted-foreground hover:text-primary"
+                aria-label="Email"
+              >
+                <Mail size={20} />
               </a>
-              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="flex-1 aspect-square rounded-xl border border-border hover:border-primary hover:bg-primary/5 flex items-center justify-center text-muted-foreground hover:text-primary transition-all" aria-label="GitHub">
-                <Github size={18} />
+              <a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="aspect-square flex items-center justify-center border border-border rounded-lg hover:border-primary/50 hover:bg-primary/5 transition-all text-muted-foreground hover:text-primary"
+                aria-label="GitHub"
+              >
+                <Github size={20} />
               </a>
-              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="flex-1 aspect-square rounded-xl border border-border hover:border-primary hover:bg-primary/5 flex items-center justify-center text-muted-foreground hover:text-primary transition-all" aria-label="LinkedIn">
-                <Linkedin size={18} />
+              <a
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="aspect-square flex items-center justify-center border border-border rounded-lg hover:border-primary/50 hover:bg-primary/5 transition-all text-muted-foreground hover:text-primary"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={20} />
               </a>
             </div>
           </motion.div>
 
-          {/* Latest role */}
+          {/* Current Role Card */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.55 }}
-            className="col-span-12 lg:col-span-4 bento-card p-6 min-h-[160px] flex flex-col justify-between"
+            variants={itemVariants}
+            className="md:col-span-3 bento-card rounded-2xl p-8 border-l-4 border-l-primary flex flex-col justify-between"
           >
-            <div className="flex items-center justify-between mb-4">
-              <div className="text-xs font-mono uppercase tracking-[0.25em] text-primary">Now</div>
-              <div className="text-xs font-mono text-muted-foreground">{experiences[0].period}</div>
+            <div className="flex justify-between items-start">
+              <span className="text-xs font-mono uppercase tracking-widest text-primary">Now</span>
+              <span className="text-xs font-mono text-muted-foreground">{experiences[0].period}</span>
             </div>
-            <div>
-              <div className="font-display font-semibold text-lg text-foreground leading-tight">
+            <div className="mt-8">
+              <h3 className="font-display font-semibold text-lg text-foreground mb-1">
                 {experiences[0].role}
-              </div>
-              <div className="text-sm text-muted-foreground mt-1">
-                {experiences[0].company}
-              </div>
+              </h3>
+              <p className="text-sm text-muted-foreground">{experiences[0].company}</p>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

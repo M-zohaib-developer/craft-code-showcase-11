@@ -1,13 +1,8 @@
-import { useRef } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Calendar, Code2 } from "lucide-react";
 import { personalInfo } from "@/data/projects";
-import { useInView } from "@/hooks/use-in-view";
 
 const About = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const inView = useInView(sectionRef, { amount: 0.2 });
-  const showCards = inView;
   const items = [
     {
       icon: Calendar,
@@ -27,8 +22,8 @@ const About = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="about" className="section-padding relative overflow-hidden">
-      {/* Background decoration - scroll once */}
+    <section id="about" className="section-padding relative overflow-hidden">
+      {/* Background decoration */}
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         whileInView={{ opacity: 0.08, scale: 1 }}
@@ -41,32 +36,32 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-3xl"
         >
           <motion.span
             initial={{ opacity: 0, x: -50, scale: 0.8 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6 }}
             className="text-primary font-mono text-sm tracking-[0.3em] uppercase mb-4 block"
           >
             Who I Am
           </motion.span>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="section-title"
           >
             About
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="section-subtitle mb-12"
           >
@@ -79,21 +74,15 @@ const About = () => {
             <motion.div
               key={item.title}
               initial={{ x: -80, opacity: 0 }}
-              animate={{
-                x: showCards ? 0 : 100,
-                opacity: showCards ? 1 : 0,
-              }}
-              transition={{
-                delay: showCards ? index * 0.12 : 0,
-                duration: 0.5,
-                ease: "easeOut",
-              }}
-              whileHover={{ 
-                y: -15, 
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{
+                y: -15,
                 scale: 1.02,
                 rotateY: 5,
                 boxShadow: "0 25px 50px -12px hsl(38 100% 55% / 0.15)",
-                transition: { duration: 0.4 } 
+                transition: { duration: 0.4 }
               }}
               className="bg-card rounded-xl p-6 border border-border group cursor-pointer relative overflow-hidden"
             >
@@ -103,50 +92,32 @@ const About = () => {
                 whileHover={{ opacity: 1 }}
                 className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/20 via-transparent to-primary/10 pointer-events-none"
               />
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ scale: 0, rotate: -180 }}
                 whileInView={{ scale: 1, rotate: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: false, amount: 0.2 }}
                 transition={{ delay: index * 0.2 + 0.3, type: "spring", stiffness: 200 }}
                 className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 relative"
               >
                 <item.icon className="w-7 h-7 text-primary" />
               </motion.div>
-              
-              <motion.h3 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 + 0.4 }}
-                className="font-semibold text-lg text-foreground mb-3 group-hover:text-primary transition-colors"
-              >
+
+              <h3 className="font-semibold text-lg text-foreground mb-3 group-hover:text-primary transition-colors">
                 {item.title}
-              </motion.h3>
-              <motion.p 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 + 0.5 }}
-                className="text-muted-foreground text-sm leading-relaxed"
-              >
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {item.description}
-              </motion.p>
+              </p>
             </motion.div>
           ))}
         </div>
 
         <motion.div
           initial={{ x: -80, opacity: 0 }}
-          animate={{
-            x: showCards ? 0 : 100,
-            opacity: showCards ? 1 : 0,
-          }}
-          transition={{
-            delay: showCards ? 0.25 : 0,
-            duration: 0.5,
-            ease: "easeOut",
-          }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
           whileHover={{ scale: 1.01 }}
           className="bg-card rounded-2xl p-8 md:p-10 border border-border relative overflow-hidden"
         >
@@ -154,21 +125,15 @@ const About = () => {
           <motion.div
             initial={{ width: 0, opacity: 0 }}
             whileInView={{ width: "150px", opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 1, delay: 0.3 }}
             className="h-1.5 bg-gradient-to-r from-primary via-yellow-400 to-primary rounded-full mb-8"
           />
-          
-          <motion.h3 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-semibold text-2xl text-foreground mb-8"
-          >
+
+          <h3 className="font-semibold text-2xl text-foreground mb-8">
             Development Approach
-          </motion.h3>
-          
+          </h3>
+
           <div className="space-y-6 text-muted-foreground leading-relaxed">
             {[
               "I focus on writing clean, maintainable code that solves real problems. My approach emphasizes understanding business requirements before diving into implementation, ensuring the technical solution aligns with project goals.",
@@ -179,7 +144,7 @@ const About = () => {
                 key={idx}
                 initial={{ opacity: 0, x: -60 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.7, delay: idx * 0.15 + 0.3 }}
               >
                 {text}
