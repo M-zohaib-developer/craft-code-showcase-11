@@ -36,13 +36,7 @@ const Contact = () => {
       />
 
       <div className="section-container relative z-10">
-        <motion.div
-          initial={{ x: -60, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <span className="text-primary font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
             Get In Touch
           </span>
@@ -50,13 +44,13 @@ const Contact = () => {
           <p className="section-subtitle mx-auto">
             You can reach me through the following platforms
           </p>
-        </motion.div>
+        </div>
 
         <motion.div
-          initial={{ x: -80, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+          transition={{ duration: 0.4 }}
           className="max-w-2xl mx-auto"
         >
           <div className="bg-card rounded-2xl border border-border p-8 md:p-10 relative overflow-hidden">
@@ -64,26 +58,19 @@ const Contact = () => {
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary" />
 
             <div className="grid gap-4">
-              {contactLinks.map((link, index) => (
+              {contactLinks.map((link) => (
                 <motion.a
                   key={link.label}
                   href={link.href}
                   target={link.label !== "Email" ? "_blank" : undefined}
                   rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, amount: 0.2 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
-                  whileHover={{ x: 8 }}
+                  whileHover={{ x: 4 }}
                   className="flex items-center justify-between p-5 rounded-xl hover:bg-secondary/50 transition-all duration-300 group border border-transparent hover:border-border"
                 >
                   <div className="flex items-center gap-5">
-                    <motion.div
-                      whileHover={{ rotate: 10, scale: 1.1 }}
-                      className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors"
-                    >
+                    <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
                       <link.icon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
-                    </motion.div>
+                    </div>
                     <div>
                       <p className="font-semibold text-foreground group-hover:text-primary transition-colors">
                         {link.label}
@@ -91,23 +78,11 @@ const Contact = () => {
                       <p className="text-sm text-muted-foreground">{link.value}</p>
                     </div>
                   </div>
-                  <motion.div
-                    initial={{ opacity: 0, x: -10 }}
-                    whileHover={{ opacity: 1, x: 0 }}
-                    className="opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    <ArrowUpRight className="w-5 h-5 text-primary" />
-                  </motion.div>
+                  <ArrowUpRight className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                 </motion.a>
               ))}
 
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{ duration: 0.4, delay: 0.5 }}
-                className="flex items-center gap-5 p-5"
-              >
+              <div className="flex items-center gap-5 p-5">
                 <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center">
                   <MapPin className="w-6 h-6 text-muted-foreground" />
                 </div>
@@ -115,7 +90,7 @@ const Contact = () => {
                   <p className="font-semibold text-foreground">Location</p>
                   <p className="text-sm text-muted-foreground">{personalInfo.location}</p>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </motion.div>

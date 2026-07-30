@@ -1,33 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Github, Linkedin, Mail, Sparkles, Code2, Zap } from "lucide-react";
 import { personalInfo, projects, experiences } from "@/data/projects";
-import { useRef } from "react";
-import { useInView } from "@/hooks/use-in-view";
 
 const Hero = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { amount: 0.2 });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
   const stats = [
     { label: "Projects", value: `${projects.length}+` },
     { label: "Stack Depth", value: "Full" },
@@ -35,7 +10,7 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden" ref={ref}>
+    <section id="home" className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Ambient glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-primary/10 blur-[140px] rounded-full" />
@@ -44,12 +19,7 @@ const Hero = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Status Bar */}
-        <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4"
-        >
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4">
           <div className="flex items-center gap-3">
             <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
             <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
@@ -59,18 +29,16 @@ const Hero = () => {
           <div className="text-xs font-mono text-muted-foreground tracking-widest">
             {new Date().getFullYear()} / PORTFOLIO V2
           </div>
-        </motion.div>
+        </div>
 
         {/* Bento grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-12 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Main Intro Card */}
           <motion.div
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.4 }}
             className="md:col-span-8 bento-card rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[400px]"
           >
             <div>
@@ -97,15 +65,22 @@ const Hero = () => {
                 Explore Work
                 <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </a>
-              <button className="px-8 py-3 rounded-full border border-border hover:bg-primary/5 font-semibold transition-all">
+              <a
+                href="/Zohaib_CV_v1.pdf"
+                download="Muhammad_Zohaib_CV"
+                className="px-8 py-3 rounded-full border border-border hover:bg-primary/5 font-semibold transition-all hover:border-primary"
+              >
                 Download CV
-              </button>
+              </a>
             </div>
           </motion.div>
 
           {/* Profile Image Card */}
           <motion.div
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.4 }}
             className="md:col-span-4 bento-card rounded-2xl overflow-hidden relative group min-h-[400px]"
           >
             <div className="relative w-full h-full overflow-hidden">
@@ -134,7 +109,10 @@ const Hero = () => {
           {stats.slice(0, 2).map((s, i) => (
             <motion.div
               key={s.label}
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
               className="md:col-span-3 bento-card rounded-2xl p-8"
             >
               <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground block mb-8">
@@ -148,7 +126,10 @@ const Hero = () => {
 
           {/* Focus Card */}
           <motion.div
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.4 }}
             className="md:col-span-6 bento-card rounded-2xl p-8 flex flex-col justify-end"
           >
             <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground block mb-8">
@@ -165,7 +146,10 @@ const Hero = () => {
 
           {/* About Summary Card */}
           <motion.div
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.4 }}
             className="md:col-span-6 bento-card rounded-2xl p-8"
           >
             <div className="flex items-center gap-2 mb-6">
@@ -179,7 +163,10 @@ const Hero = () => {
 
           {/* Connect Card */}
           <motion.div
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.4 }}
             className="md:col-span-3 bento-card rounded-2xl p-8"
           >
             <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground block mb-8">
@@ -216,7 +203,10 @@ const Hero = () => {
 
           {/* Current Role Card */}
           <motion.div
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.4 }}
             className="md:col-span-3 bento-card rounded-2xl p-8 border-l-4 border-l-primary flex flex-col justify-between"
           >
             <div className="flex justify-between items-start">
@@ -230,7 +220,7 @@ const Hero = () => {
               <p className="text-sm text-muted-foreground">{experiences[0].company}</p>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -33,75 +33,32 @@ const About = () => {
       />
 
       <div className="section-container relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-3xl"
-        >
-          <motion.span
-            initial={{ opacity: 0, x: -50, scale: 0.8 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.6 }}
-            className="text-primary font-mono text-sm tracking-[0.3em] uppercase mb-4 block"
-          >
+        <div className="max-w-3xl mb-12">
+          <span className="text-primary font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
             Who I Am
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="section-title"
-          >
-            About
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="section-subtitle mb-12"
-          >
-            Professional background and development approach
-          </motion.p>
-        </motion.div>
+          </span>
+          <h2 className="section-title">About</h2>
+          <p className="section-subtitle">Professional background and development approach</p>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12 perspective-1000">
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
           {items.map((item, index) => (
             <motion.div
               key={item.title}
-              initial={{ x: -80, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
               whileHover={{
-                y: -15,
+                y: -8,
                 scale: 1.02,
-                rotateY: 5,
-                boxShadow: "0 25px 50px -12px hsl(38 100% 55% / 0.15)",
-                transition: { duration: 0.4 }
+                transition: { duration: 0.2 }
               }}
               className="bg-card rounded-xl p-6 border border-border group cursor-pointer relative overflow-hidden"
             >
-              {/* Animated gradient border */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/20 via-transparent to-primary/10 pointer-events-none"
-              />
-
-              <motion.div
-                initial={{ scale: 0, rotate: -180 }}
-                whileInView={{ scale: 1, rotate: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{ delay: index * 0.2 + 0.3, type: "spring", stiffness: 200 }}
-                className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 relative"
-              >
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 relative">
                 <item.icon className="w-7 h-7 text-primary" />
-              </motion.div>
+              </div>
 
               <h3 className="font-semibold text-lg text-foreground mb-3 group-hover:text-primary transition-colors">
                 {item.title}
@@ -114,21 +71,14 @@ const About = () => {
         </div>
 
         <motion.div
-          initial={{ x: -80, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+          transition={{ duration: 0.4 }}
           whileHover={{ scale: 1.01 }}
           className="bg-card rounded-2xl p-8 md:p-10 border border-border relative overflow-hidden"
         >
-          {/* Decorative animated line */}
-          <motion.div
-            initial={{ width: 0, opacity: 0 }}
-            whileInView={{ width: "150px", opacity: 1 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="h-1.5 bg-gradient-to-r from-primary via-yellow-400 to-primary rounded-full mb-8"
-          />
+          <div className="h-1.5 bg-gradient-to-r from-primary via-yellow-400 to-primary rounded-full mb-8" />
 
           <h3 className="font-semibold text-2xl text-foreground mb-8">
             Development Approach
@@ -140,15 +90,7 @@ const About = () => {
               "Throughout my career, I've worked on projects ranging from startup MVPs to enterprise applications. This experience has taught me to balance speed of delivery with code quality, and to communicate effectively with both technical and non-technical stakeholders.",
               "I stay current with industry developments through continuous learning and active participation in the developer community. I believe in sharing knowledge and contributing to open source when possible."
             ].map((text, idx) => (
-              <motion.p
-                key={idx}
-                initial={{ opacity: 0, x: -60 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{ duration: 0.7, delay: idx * 0.15 + 0.3 }}
-              >
-                {text}
-              </motion.p>
+              <p key={idx}>{text}</p>
             ))}
           </div>
         </motion.div>

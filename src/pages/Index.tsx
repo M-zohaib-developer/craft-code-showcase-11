@@ -8,11 +8,13 @@ import Contact from "@/sections/Contact";
 import Footer from "@/components/Footer";
 import ParticleBackground from "@/components/ParticleBackground";
 import ScrollProgress from "@/components/ScrollProgress";
+import OceanDive from "@/components/ScrollDoor";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
       <ScrollProgress />
+      <OceanDive />
       <ParticleBackground />
       <Navbar />
       <main className="relative z-10">
