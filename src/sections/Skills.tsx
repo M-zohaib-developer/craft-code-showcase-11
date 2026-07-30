@@ -39,7 +39,7 @@ const Skills = () => {
               }}
               className="bg-card rounded-2xl p-8 border border-border relative group overflow-hidden"
             >
-              <div className="h-1.5 bg-gradient-to-r from-primary to-yellow-400 rounded-full mb-8" />
+              <div className="h-1.5 bg-gradient-to-r from-primary to-accent rounded-full mb-8" />
 
               <h3 className="font-bold text-xl text-foreground mb-8 group-hover:text-primary transition-colors relative">
                 {category.title}
