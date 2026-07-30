@@ -6,63 +6,65 @@
 
 @layer base {
   :root {
-    --background: 0 0% 5%;
-    --foreground: 45 30% 96%;
+    /* Deep ocean palette */
+    --background: 210 90% 4%;
+    --foreground: 185 40% 94%;
 
-    --card: 0 0% 7%;
-    --card-foreground: 45 30% 96%;
+    --card: 207 60% 8%;
+    --card-foreground: 185 40% 94%;
 
-    --popover: 0 0% 7%;
-    --popover-foreground: 45 30% 96%;
+    --popover: 207 60% 8%;
+    --popover-foreground: 185 40% 94%;
 
-    --primary: 43 52% 54%;
-    --primary-foreground: 0 0% 5%;
+    --primary: 186 90% 55%;
+    --primary-foreground: 210 90% 5%;
 
-    --primary-glow: 41 76% 75%;
+    --primary-glow: 178 85% 70%;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 45 30% 96%;
+    --secondary: 206 55% 11%;
+    --secondary-foreground: 185 40% 94%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 40 8% 60%;
+    --muted: 206 45% 14%;
+    --muted-foreground: 195 20% 68%;
 
-    --accent: 41 76% 75%;
-    --accent-foreground: 0 0% 5%;
+    --accent: 172 80% 55%;
+    --accent-foreground: 210 90% 5%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 355 80% 58%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 40 15% 15%;
-    --input: 0 0% 12%;
-    --ring: 43 52% 54%;
+    --border: 198 45% 18%;
+    --input: 206 45% 14%;
+    --ring: 186 90% 55%;
 
     --radius: 1rem;
 
-    /* Enhanced gradient tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(43 52% 54%) 0%, hsl(41 76% 75%) 50%, hsl(43 52% 54%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 9%) 0%, hsl(0 0% 5%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(41 76% 75%) 0%, hsl(43 52% 54%) 100%);
-    --gradient-glow: radial-gradient(ellipse at center, hsl(43 52% 54% / 0.18) 0%, transparent 70%);
-    --gradient-mesh: radial-gradient(at 20% 10%, hsl(43 52% 54% / 0.10) 0px, transparent 50%),
-                     radial-gradient(at 85% 15%, hsl(41 76% 75% / 0.06) 0px, transparent 50%),
-                     radial-gradient(at 50% 85%, hsl(43 52% 54% / 0.05) 0px, transparent 50%);
+    /* Ocean gradient tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(186 90% 55%) 0%, hsl(178 85% 70%) 50%, hsl(200 90% 60%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(207 60% 10% / 0.9) 0%, hsl(210 80% 5% / 0.9) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(178 85% 70%) 0%, hsl(186 90% 55%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(186 90% 55% / 0.18) 0%, transparent 70%);
+    --gradient-mesh: radial-gradient(at 20% 5%, hsl(186 90% 55% / 0.12) 0px, transparent 55%),
+                     radial-gradient(at 85% 20%, hsl(172 80% 55% / 0.08) 0px, transparent 50%),
+                     radial-gradient(at 50% 95%, hsl(215 95% 8% / 0.9) 0px, transparent 60%);
 
-    /* Enhanced shadow tokens */
-    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.5), 0 2px 8px -2px hsl(0 0% 0% / 0.4);
-    --shadow-card-hover: 0 30px 60px -15px hsl(0 0% 0% / 0.7), 0 10px 30px -5px hsl(43 52% 54% / 0.15);
-    --shadow-hero-image: 0 30px 60px -15px hsl(43 52% 54% / 0.25), 0 15px 30px -10px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0 0 40px hsl(43 52% 54% / 0.25), 0 0 100px hsl(41 76% 75% / 0.08);
-    --shadow-inner: inset 0 1px 0 hsl(45 30% 96% / 0.05);
+    /* Depth shadows */
+    --shadow-card: 0 4px 24px -4px hsl(210 95% 2% / 0.7), 0 2px 8px -2px hsl(210 95% 2% / 0.5);
+    --shadow-card-hover: 0 30px 60px -15px hsl(210 95% 2% / 0.8), 0 10px 30px -5px hsl(186 90% 55% / 0.2);
+    --shadow-hero-image: 0 30px 60px -15px hsl(186 90% 55% / 0.25), 0 15px 30px -10px hsl(210 95% 2% / 0.6);
+    --shadow-glow: 0 0 40px hsl(186 90% 55% / 0.28), 0 0 100px hsl(178 85% 70% / 0.1);
+    --shadow-inner: inset 0 1px 0 hsl(185 60% 90% / 0.06);
 
-    --sidebar-background: 0 0% 7%;
-    --sidebar-foreground: 45 30% 96%;
-    --sidebar-primary: 43 52% 54%;
-    --sidebar-primary-foreground: 0 0% 5%;
-    --sidebar-accent: 0 0% 10%;
-    --sidebar-accent-foreground: 45 30% 96%;
-    --sidebar-border: 40 15% 15%;
-    --sidebar-ring: 43 52% 54%;
+    --sidebar-background: 207 60% 8%;
+    --sidebar-foreground: 185 40% 94%;
+    --sidebar-primary: 186 90% 55%;
+    --sidebar-primary-foreground: 210 90% 5%;
+    --sidebar-accent: 206 55% 11%;
+    --sidebar-accent-foreground: 185 40% 94%;
+    --sidebar-border: 198 45% 18%;
+    --sidebar-ring: 186 90% 55%;
   }
+
 }
 
 @layer base {
