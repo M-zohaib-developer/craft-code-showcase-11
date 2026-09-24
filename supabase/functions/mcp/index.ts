@@ -12,54 +12,60 @@ import { defineTool } from "npm:@lovable.dev/mcp-js@0.24.0";
 var projects = [
   {
     id: "1",
-    title: "MOBOCHECK_PLATFORM",
+    summary: "Multi-role enterprise back-office for devices, orders, and licenses",
+    title: "MoboCheck",
     description: "Mobocheck Backoffice is a full-stack, multi-role enterprise dashboard built with React and TypeScript. Permissions for all roles\u2014including admins\u2014are managed in the backend via Casbin and sent dynamically to the frontend, ensuring each user sees only the features allowed for their role. The platform includes secure REST APIs, role-based authentication, real-time updates, database operations, notifications, activity logging, and a responsive dashboard for managing users, devices, orders, licenses, and organization settings according to assigned permissions.",
-    techStack: ["React", "Node.js", "My_SQL", "Casbin", "Tailwind CSS"],
-    image: "/Mobo.png",
+    techStack: ["React", "Node.js", "MySQL", "Casbin", "Tailwind CSS"],
+    image: "/mobocheck.webp",
     githubUrl: "https://github.com/M-zohaib-developer/",
     liveUrl: "https://mobocheck.com"
   },
   {
     id: "2",
-    title: "POSTSIVA_PLATFORM",
+    summary: "AI-powered social media scheduling and publishing platform",
+    title: "Postsiva",
     description: "Postsiva is a unified AI-powered social media management platform that lets users compose, schedule, and publish content across LinkedIn, Facebook, Instagram, TikTok, and YouTube from a single workspace. The platform features an integrated AI toolkit for text-to-image generation, caption and content editing, and automated thumbnail creation, alongside a unified inbox, live network previews, and multi-workspace support for managing multiple brands or clients from one dashboard.",
-    techStack: ["React", "Next.js", "TypeScript", "Node.js", "AI_Integration", "Tailwind CSS"],
-    image: "/postsiva.png",
+    techStack: ["React", "Next.js", "TypeScript", "Node.js", "AI Integration", "Tailwind CSS"],
+    image: "/postsiva.webp",
     githubUrl: "https://github.com/M-zohaib-developer/",
     liveUrl: "https://www.postsiva.com"
   },
   {
     id: "3",
-    title: "AUTOMATEV_PLATFORM",
+    summary: "Marketing and portfolio website for an AI automation agency",
+    title: "Automatev",
     description: "Automatev is the marketing and portfolio website for an AI and automation software agency. Built as a fast, animation-rich single-brand site, it showcases the team's work, capabilities, and people while funneling visitor interest into contact forms and call bookings\u2014designed to turn traffic into qualified leads with smooth, high-performance motion design throughout.",
-    techStack: ["React", "Next.js", "TypeScript", "Framer_Motion", "Tailwind CSS"],
-    image: "/automatev.png",
+    techStack: ["React", "Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
+    image: "/automatev.webp",
     githubUrl: "https://github.com/M-zohaib-developer/",
     liveUrl: "https://automatev.com"
   },
   {
     id: "4",
-    title: "QYRA_AI_ASSISTENCE",
+    summary: "Cross-platform AI assistant with voice and chat",
+    title: "Qyra AI Assistant",
     description: "A comprehensive AI-driven ecosystem designed to streamline daily life. Seamlessly integrated with the Esqyra Watch, the application delivers complete information through fluid voice and chat interactions. It merges intelligent task management with proactive health and productivity insights, offering personalized recommendations, real-time location tracking, and local weather updates. The system also features a curated news aggregator\u2014covering politics, social trends, and global events\u2014all visualized within a sleek, fully responsive dashboard.",
-    techStack: ["React_Native", "TS", "REST API", "My_SQL", "Tailwind CSS"],
-    image: "/Qyra.png",
+    techStack: ["React Native", "TypeScript", "REST API", "MySQL", "Tailwind CSS"],
+    image: "/qyra.webp",
     githubUrl: "https://github.com/M-zohaib-developer/",
     liveUrl: "https://app.esqyra.com"
   },
   {
     id: "5",
+    summary: "Freelance marketplace with Casbin-based RBAC",
     title: "FreelanceHub Marketplace",
     description: "Full-stack freelance marketplace platform connecting clients with freelancers. Features complete project lifecycle management from posting to payment, with advanced Casbin-based RBAC system for three user roles (CLIENT, FREELANCER, ADMIN). Includes project bidding workflow, proposal management, contract execution, secure JWT authentication, and role-specific dashboards. Built with MVC architecture, complex relational database with 8 models using Prisma ORM, and responsive UI for seamless user experience across all roles.",
     techStack: ["React", "TypeScript", "Node.js", "Express", "MySQL", "Prisma", "Casbin", "Tailwind CSS"],
-    image: "/freelancer.png",
+    image: "/freelancer.webp",
     githubUrl: "https://github.com/M-zohaib-developer/"
   },
   {
     id: "6",
+    summary: "Full-stack event planning and registration platform",
     title: "Events Management System",
     description: "Event Management System is a full-stack web application designed to simplify the process of planning and managing events. The platform allows organizers to create events, manage schedules, register participants, track attendees, and handle event-related operations in an efficient way. Users can browse upcoming events, register online, and receive real-time updates. Admins or organizers can manage event details, monitor registrations, and control permissions based on user roles. The system focuses on performance, usability, and scalability, making event coordination easier for both organizers and participants.",
     techStack: ["React", "Firebase", "Redux", "WebSocket", "Material UI"],
-    image: "/Events.png",
+    image: "",
     githubUrl: "https://github.com/M-zohaib-developer/"
   }
 ];
@@ -191,7 +197,7 @@ var experiences = [
 var personalInfo = {
   name: "Muhammad Zohaib",
   role: "Full Stack Developer",
-  bio: "Software developer with 1+ year of hands-on experience building modern web and mobile applications. Focused on writing clean, maintainable code and creating intuitive user interfaces. Experienced in the React ecosystem including React, Next.js, React Native, along with backend development using Node.js. Passionate about delivering scalable and user-friendly solutions..",
+  bio: "Software developer with 1+ year of hands-on experience building modern web and mobile applications. Focused on writing clean, maintainable code and creating intuitive user interfaces. Experienced in the React ecosystem including React, Next.js, React Native, along with backend development using Node.js. Focused on delivering scalable, user-friendly solutions.",
   email: "mzohaibbhatti604@gmail.com",
   github: "https://github.com/M-zohaib-developer",
   linkedin: "https://www.linkedin.com/in/muhammad-zohaib-1a6972234/",
