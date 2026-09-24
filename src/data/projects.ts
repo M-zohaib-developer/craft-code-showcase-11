@@ -68,6 +68,16 @@ export const projects: Project[] = [
     image: "",
     githubUrl: "https://github.com/M-zohaib-developer/",
   },
+  {
+    id: "7",
+    summary: "Dynamic investment and brokerage platform powered by CMS-managed content",
+    title: "Enrichers Investment Group",
+    description: "Enrichers Investment Group is a production investment and brokerage website for PSX and PMEX services in Pakistan. The platform is built with fully dynamic, CMS-managed page content, media, SEO metadata, navigation, service sections, latest insights, FAQs, consultation forms, and investment pages, so images and text can be managed from the backend without hard-coded page updates.",
+    techStack: ["Next.js", "TypeScript", "Payload CMS", "Dynamic Content", "SEO", "Forms"],
+    image: "https://enrichers.innovidio.com/api/media/file/hero-5-scaled-1200x630.webp",
+    githubUrl: "https://github.com/M-zohaib-developer/",
+    liveUrl: "https://enrichers.innovidio.com/",
+  },
 ];
 export interface Skill {
   name: string;
@@ -212,6 +222,20 @@ export const experiences: Experience[] = [
       "Developed scalable REST API architecture and normalized MySQL database schema from ground up",
       "Delivered responsive, type-safe frontend using React.js with TypeScript for enhanced code reliability",
       "Owned complete SDLC from requirements gathering through successful production deployment",
+    ],
+  },
+  {
+    id: "7",
+    company: "Enrichers Investment Group (Innovidio)",
+    role: "Full Stack Developer",
+    period: "2026",
+    description: "Built and delivered a production investment and brokerage website for PSX and PMEX services with dynamic backend-managed content.",
+    responsibilities: [
+      "Developed a fully dynamic website where homepage sections, images, service content, articles, FAQs, navigation, and SEO metadata are managed from the backend",
+      "Integrated Payload CMS-driven content workflows so non-developers can update text and media without code changes",
+      "Implemented production-ready frontend pages for investment services, consultation flows, latest insights, FAQs, and brokerage content",
+      "Configured professional SEO metadata, Open Graph sharing, structured content, and optimized media delivery for search and social previews",
+      "Built responsive layouts and reusable content sections for a polished experience across desktop and mobile devices",
     ],
   },
 ];

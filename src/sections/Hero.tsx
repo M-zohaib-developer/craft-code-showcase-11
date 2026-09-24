@@ -60,7 +60,7 @@ const Hero = () => {
               alt="Portrait of Muhammad Zohaib, full-stack software engineer"
               width={800}
               height={800}
-              fetchPriority="high"
+              fetchpriority="high"
               decoding="async"
               className="aspect-square w-full rounded-lg object-cover"
             />
