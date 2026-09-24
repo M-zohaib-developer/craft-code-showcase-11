@@ -1,91 +1,45 @@
-import { motion } from "framer-motion";
 import { experiences } from "@/data/projects";
+import Reveal from "@/components/Reveal";
 
-const Experience = () => {
-  return (
-    <section id="experience" className="section-padding bg-secondary/20 relative overflow-hidden">
-      {/* Animated background */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        whileInView={{ opacity: 0.06, scale: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 1.5 }}
-        className="absolute top-1/3 left-0 w-[600px] h-[600px] bg-primary rounded-full blur-[180px]"
-      />
+const Experience = () => (
+  <section id="experience" aria-labelledby="experience-title" className="section-padding border-t border-border">
+    <div className="section-container">
+      <Reveal>
+        <p className="eyebrow mb-3">Experience</p>
+        <h2 id="experience-title" className="section-title">Work and project history</h2>
+        <p className="section-subtitle">
+          Production work at MoboCheck and Automatev, plus personal and university projects. See the related
+          work in <a href="#projects" className="text-primary underline-offset-4 hover:underline">featured projects</a>.
+        </p>
+      </Reveal>
 
-      <div className="section-container relative z-10">
-        <div className="mb-16">
-          <span className="text-primary font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
-            Career Path
-          </span>
-          <h2 className="section-title">Experience</h2>
-          <p className="section-subtitle">Professional background and career progression</p>
-        </div>
-
-        <div className="space-y-10 relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-8 top-0 w-0.5 h-full bg-gradient-to-b from-primary via-primary/50 to-transparent hidden md:block" />
-
-          {experiences.map((experience, index) => (
-            <motion.div
-              key={experience.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.4 }}
-              className="relative md:pl-24"
-            >
-              {/* Timeline dot */}
-              <div className="absolute left-0 md:left-6 top-10 w-6 h-6 bg-background border-3 border-primary rounded-full hidden md:flex items-center justify-center z-10">
-                <div className="w-2.5 h-2.5 bg-primary rounded-full" />
-              </div>
-
-              <motion.div
-                whileHover={{
-                  scale: 1.02,
-                  boxShadow: "0 10px 30px -5px hsl(38 100% 55% / 0.1)",
-                  transition: { duration: 0.3 }
-                }}
-                className="bg-card rounded-2xl p-8 md:p-10 border border-border group hover:border-primary/40 transition-all duration-300 relative overflow-hidden"
-              >
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-5 mb-6 relative">
-                  <div>
-                    <h3 className="font-bold text-2xl text-foreground group-hover:text-primary transition-colors">
-                      {experience.role}
-                    </h3>
-                    <p className="text-primary font-semibold text-lg mt-1">
-                      {experience.company}
-                    </p>
-                  </div>
-                  <span className="text-sm text-muted-foreground font-mono bg-secondary/80 px-5 py-2.5 rounded-full w-fit border border-border">
-                    {experience.period}
-                  </span>
+      <ol className="relative mt-12 space-y-6 border-l border-border pl-6 md:pl-8">
+        {experiences.map((exp, i) => (
+          <li key={exp.id} className="relative">
+            <span aria-hidden="true" className="absolute -left-[29px] top-6 h-2.5 w-2.5 rounded-full border-2 border-primary bg-background md:-left-[37px]" />
+            <Reveal delay={Math.min(i, 3) * 0.04}>
+              <article className="surface p-6 md:p-7">
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                  <h3 className="text-lg font-semibold text-foreground">{exp.role}</h3>
+                  <p className="font-mono text-xs text-muted-foreground">{exp.period}</p>
                 </div>
-
-                <p className="text-muted-foreground mb-6 leading-relaxed text-base relative">
-                  {experience.description}
-                </p>
-
-                <ul className="space-y-4 relative">
-                  {experience.responsibilities.map((responsibility) => (
-                    <li
-                      key={responsibility}
-                      className="flex items-start gap-4 text-sm text-muted-foreground group/item"
-                    >
-                      <span className="w-2.5 h-2.5 rounded-full bg-primary mt-1.5 flex-shrink-0 group-hover/item:shadow-[0_0_10px_hsl(38_100%_55%)] transition-shadow" />
-                      <span className="group-hover/item:text-foreground transition-colors">
-                        {responsibility}
-                      </span>
+                <p className="mt-1 text-sm text-primary">{exp.company}</p>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{exp.description}</p>
+                <ul className="mt-4 space-y-2">
+                  {exp.responsibilities.map((r) => (
+                    <li key={r} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+                      <span aria-hidden="true" className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                      {r}
                     </li>
                   ))}
                 </ul>
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+              </article>
+            </Reveal>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+);
 
 export default Experience;
