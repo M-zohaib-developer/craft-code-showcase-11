@@ -1,225 +1,78 @@
-import { motion } from "framer-motion";
-import { ArrowUpRight, Github, Linkedin, Mail, Sparkles, Code2, Zap } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, MapPin } from "lucide-react";
 import { personalInfo, projects, experiences } from "@/data/projects";
 
 const Hero = () => {
-  const stats = [
-    { label: "Projects", value: `${projects.length}+` },
-    { label: "Stack Depth", value: "Full" },
-    { label: "Focus", value: "Node · Next.js · React.js" },
-  ];
+  const current = experiences[0];
 
   return (
-    <section id="home" className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Ambient glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-primary/10 blur-[140px] rounded-full" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full" />
-      </div>
+    <section id="top" aria-labelledby="hero-title" className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
+      <div aria-hidden="true" className="bg-grid pointer-events-none absolute inset-0" />
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Status Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4">
-          <div className="flex items-center gap-3">
-            <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-              Available For Work • {personalInfo.location}
-            </span>
+      <div className="section-container relative grid items-center gap-12 md:grid-cols-[1.4fr_1fr]">
+        <div>
+          <p className="eyebrow mb-6 flex items-center gap-2">
+            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-primary" />
+            Open to new opportunities
+          </p>
+
+          <h1 id="hero-title" className="text-4xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Muhammad Zohaib
+            <span className="mt-3 block text-muted-foreground">Full-Stack Software Engineer</span>
+          </h1>
+
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            I build production web and mobile applications with React, Next.js, React Native, TypeScript,
+            and Node.js — from role-based back-office platforms to AI-powered products.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#projects" className="btn-primary">
+              View my projects <ArrowRight size={16} aria-hidden="true" />
+            </a>
+            <a href="#contact" className="btn-secondary">Contact me</a>
+            <a href="/Zohaib_CV_v1.pdf" download="Muhammad_Zohaib_CV.pdf" className="btn-secondary">
+              <Download size={16} aria-hidden="true" /> Download CV
+            </a>
           </div>
-          <div className="text-xs font-mono text-muted-foreground tracking-widest">
-            {new Date().getFullYear()} / PORTFOLIO V2
-          </div>
+
+          <dl className="mt-10 grid max-w-xl grid-cols-2 gap-6 border-t border-border pt-6 sm:grid-cols-3">
+            <div>
+              <dt className="font-mono text-xs uppercase tracking-wider text-muted-foreground">Currently</dt>
+              <dd className="mt-1 text-sm text-foreground">{current.role}, MoboCheck</dd>
+            </div>
+            <div>
+              <dt className="font-mono text-xs uppercase tracking-wider text-muted-foreground">Projects</dt>
+              <dd className="mt-1 text-sm text-foreground">{projects.length} shipped &amp; built</dd>
+            </div>
+            <div className="col-span-2 sm:col-span-1">
+              <dt className="font-mono text-xs uppercase tracking-wider text-muted-foreground">Based in</dt>
+              <dd className="mt-1 flex items-center gap-1 text-sm text-foreground">
+                <MapPin size={14} aria-hidden="true" /> {personalInfo.location}
+              </dd>
+            </div>
+          </dl>
         </div>
 
-        {/* Bento grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          {/* Main Intro Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.4 }}
-            className="md:col-span-8 bento-card rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[400px]"
-          >
-            <div>
-              <div className="inline-flex items-center gap-2 border border-primary/30 rounded-full px-4 py-2 mb-8 bg-primary/5">
-                <Sparkles size={14} className="text-primary" />
-                <span className="text-xs font-mono uppercase tracking-widest text-primary">Full Stack Developer</span>
-              </div>
-              <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight text-foreground mb-8">
-                {personalInfo.name.split(" ")[0]}
-                <br />
-                <span className="text-gradient italic font-light">
-                  {personalInfo.name.split(" ").slice(1).join(" ")}.
-                </span>
-              </h1>
-              <p className="text-muted-foreground max-w-md leading-relaxed text-sm md:text-base">
-                Crafting resilient web & mobile products with the React ecosystem, TypeScript, and Node — from schema to pixel.
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center gap-4 mt-12">
-              <a
-                href="#projects"
-                className="group inline-flex items-center gap-3 px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:shadow-lg transition-all"
-              >
-                Explore Work
-                <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </a>
-              <a
-                href="/Zohaib_CV_v1.pdf"
-                download="Muhammad_Zohaib_CV"
-                className="px-8 py-3 rounded-full border border-border hover:bg-primary/5 font-semibold transition-all hover:border-primary"
-              >
-                Download CV
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Profile Image Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.4 }}
-            className="md:col-span-4 bento-card rounded-2xl overflow-hidden relative group min-h-[400px]"
-          >
-            <div className="relative w-full h-full overflow-hidden">
-              <img
-                src="/image-copy.png"
-                alt={personalInfo.name}
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-              <div className="absolute inset-0 noise-grain opacity-[0.08] mix-blend-overlay" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <div className="flex justify-between items-end">
-                  <div>
-                    <span className="text-xs font-mono uppercase tracking-widest text-primary block mb-1">Signed</span>
-                    <span className="font-display font-semibold text-lg text-foreground">{personalInfo.name}</span>
-                  </div>
-                  <div className="bg-primary/20 backdrop-blur-md p-3 rounded-full border border-primary/30">
-                    <Zap size={16} className="text-primary" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Stats Row */}
-          {stats.slice(0, 2).map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="md:col-span-3 bento-card rounded-2xl p-8"
-            >
-              <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground block mb-8">
-                {s.label}
-              </span>
-              <span className="font-display text-5xl md:text-6xl font-bold text-foreground">
-                {s.value}
-              </span>
-            </motion.div>
-          ))}
-
-          {/* Focus Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.4 }}
-            className="md:col-span-6 bento-card rounded-2xl p-8 flex flex-col justify-end"
-          >
-            <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground block mb-8">
-              Focus
-            </span>
-            <div className="flex flex-wrap gap-x-4 gap-y-2">
-              <span className="font-display text-4xl text-foreground">Node</span>
-              <span className="font-display text-4xl text-primary/40">•</span>
-              <span className="font-display text-4xl text-foreground">Next.js</span>
-              <span className="font-display text-4xl text-primary/40">•</span>
-              <span className="font-display text-4xl text-foreground">React.js</span>
-            </div>
-          </motion.div>
-
-          {/* About Summary Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.4 }}
-            className="md:col-span-6 bento-card rounded-2xl p-8"
-          >
-            <div className="flex items-center gap-2 mb-6">
-              <Code2 size={18} className="text-primary" />
-              <span className="text-xs font-mono uppercase tracking-widest text-primary">About</span>
-            </div>
-            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-              {personalInfo.bio}
-            </p>
-          </motion.div>
-
-          {/* Connect Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.4 }}
-            className="md:col-span-3 bento-card rounded-2xl p-8"
-          >
-            <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground block mb-8">
-              Connect
-            </span>
-            <div className="grid grid-cols-3 gap-4">
-              <a
-                href={`mailto:${personalInfo.email}`}
-                className="aspect-square flex items-center justify-center border border-border rounded-lg hover:border-primary/50 hover:bg-primary/5 transition-all text-muted-foreground hover:text-primary"
-                aria-label="Email"
-              >
-                <Mail size={20} />
-              </a>
-              <a
-                href={personalInfo.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="aspect-square flex items-center justify-center border border-border rounded-lg hover:border-primary/50 hover:bg-primary/5 transition-all text-muted-foreground hover:text-primary"
-                aria-label="GitHub"
-              >
-                <Github size={20} />
-              </a>
-              <a
-                href={personalInfo.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="aspect-square flex items-center justify-center border border-border rounded-lg hover:border-primary/50 hover:bg-primary/5 transition-all text-muted-foreground hover:text-primary"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Current Role Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.4 }}
-            className="md:col-span-3 bento-card rounded-2xl p-8 border-l-4 border-l-primary flex flex-col justify-between"
-          >
-            <div className="flex justify-between items-start">
-              <span className="text-xs font-mono uppercase tracking-widest text-primary">Now</span>
-              <span className="text-xs font-mono text-muted-foreground">{experiences[0].period}</span>
-            </div>
-            <div className="mt-8">
-              <h3 className="font-display font-semibold text-lg text-foreground mb-1">
-                {experiences[0].role}
-              </h3>
-              <p className="text-sm text-muted-foreground">{experiences[0].company}</p>
-            </div>
-          </motion.div>
+        <div className="relative mx-auto w-full max-w-sm">
+          <div className="surface overflow-hidden p-2">
+            <img
+              src="/hero.webp"
+              alt="Portrait of Muhammad Zohaib, full-stack software engineer"
+              width={800}
+              height={800}
+              fetchPriority="high"
+              decoding="async"
+              className="aspect-square w-full rounded-lg object-cover"
+            />
+          </div>
+          <div className="mt-3 flex gap-2">
+            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="btn-secondary flex-1">
+              <Github size={16} aria-hidden="true" /> GitHub
+            </a>
+            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="btn-secondary flex-1">
+              <Linkedin size={16} aria-hidden="true" /> LinkedIn
+            </a>
+          </div>
         </div>
       </div>
     </section>
