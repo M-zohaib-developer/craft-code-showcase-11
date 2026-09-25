@@ -8,8 +8,8 @@ const Experience = () => (
         <p className="eyebrow mb-3">Experience</p>
         <h2 id="experience-title" className="section-title">Work and project history</h2>
         <p className="section-subtitle">
-          2 years of production work across MoboCheck, Cartlow, Postsiva, Automatev, and Enrichers, plus application, practice, and university projects. See the related
-          work in <a href="#projects" className="text-primary underline-offset-4 hover:underline">featured projects</a>.
+          Production work at MoboCheck and Automatev, plus personal and university projects. See the related
+          work in <a href="/projects" className="text-primary underline-offset-4 hover:underline">projects page</a>.
         </p>
       </Reveal>
 

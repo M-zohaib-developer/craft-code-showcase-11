@@ -1,13 +1,10 @@
 {
   "name": "Muhammad Zohaib",
   "short_name": "Zohaib",
-  "description": "2-year full-stack, backend, React, and production web development portfolio for Muhammad Zohaib.",
   "start_url": "/",
-  "scope": "/",
   "display": "browser",
   "background_color": "#05070A",
   "theme_color": "#05070A",
-  "categories": ["portfolio", "business", "productivity"],
   "icons": [
     { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
     { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }

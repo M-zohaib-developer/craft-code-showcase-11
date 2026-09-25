@@ -41,7 +41,7 @@ const About = () => (
       <div className="section-container grid gap-12 md:grid-cols-[1fr_1.4fr]">
         <Reveal>
           <p className="eyebrow mb-3">About</p>
-          <h2 id="about-title" className="section-title">Engineering web and mobile products end to end</h2>
+          <h2 id="about-title" className="section-title">What I work on</h2>
         </Reveal>
         <Reveal delay={0.05}>
           <p className="text-base leading-relaxed text-muted-foreground md:text-lg">{personalInfo.bio}</p>

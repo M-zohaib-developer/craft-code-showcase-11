@@ -26,7 +26,7 @@ const Hero = () => {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#projects" className="btn-primary">
+            <a href="/projects" className="btn-primary">
               View my projects <ArrowRight size={16} aria-hidden="true" />
             </a>
             <a href="#contact" className="btn-secondary">Contact me</a>
@@ -60,7 +60,7 @@ const Hero = () => {
               alt="Portrait of Muhammad Zohaib, full-stack software engineer"
               width={800}
               height={800}
-              fetchpriority="high"
+              fetchPriority="high"
               decoding="async"
               className="aspect-square w-full rounded-lg object-cover"
             />
