@@ -12,9 +12,10 @@ import { defineTool } from "npm:@lovable.dev/mcp-js@0.24.0";
 var projects = [
   {
     id: "1",
+    role: "Full Stack Developer",
     summary: "Multi-role enterprise back-office for devices, orders, and licenses",
     title: "MoboCheck",
-    description: "Mobocheck Backoffice is a full-stack, multi-role enterprise dashboard built with React and TypeScript. Permissions for all roles\u2014including admins\u2014are managed in the backend via Casbin and sent dynamically to the frontend, ensuring each user sees only the features allowed for their role. The platform includes secure REST APIs, role-based authentication, real-time updates, database operations, notifications, activity logging, and a responsive dashboard for managing users, devices, orders, licenses, and organization settings according to assigned permissions.",
+    description: "Back-office dashboard for MoboCheck, built with React and TypeScript. Permissions for all roles\u2014including admins\u2014are managed in the backend via Casbin and sent dynamically to the frontend, ensuring each user sees only the features allowed for their role. The platform includes secure REST APIs, role-based authentication, real-time updates, database operations, notifications, activity logging, and a responsive dashboard for managing users, devices, orders, licenses, and organization settings according to assigned permissions.",
     techStack: ["React", "Node.js", "MySQL", "Casbin", "Tailwind CSS"],
     image: "/mobocheck.webp",
     githubUrl: "https://github.com/M-zohaib-developer/",
@@ -22,6 +23,7 @@ var projects = [
   },
   {
     id: "2",
+    role: "Full Stack Developer",
     summary: "AI-powered social media scheduling and publishing platform",
     title: "Postsiva",
     description: "Postsiva is a unified AI-powered social media management platform that lets users compose, schedule, and publish content across LinkedIn, Facebook, Instagram, TikTok, and YouTube from a single workspace. The platform features an integrated AI toolkit for text-to-image generation, caption and content editing, and automated thumbnail creation, alongside a unified inbox, live network previews, and multi-workspace support for managing multiple brands or clients from one dashboard.",
@@ -32,6 +34,7 @@ var projects = [
   },
   {
     id: "3",
+    role: "Full Stack Developer",
     summary: "Marketing and portfolio website for an AI automation agency",
     title: "Automatev",
     description: "Automatev is the marketing and portfolio website for an AI and automation software agency. Built as a fast, animation-rich single-brand site, it showcases the team's work, capabilities, and people while funneling visitor interest into contact forms and call bookings\u2014designed to turn traffic into qualified leads with smooth, high-performance motion design throughout.",
@@ -42,9 +45,10 @@ var projects = [
   },
   {
     id: "4",
+    role: "React Native Developer",
     summary: "Cross-platform AI assistant with voice and chat",
     title: "Qyra AI Assistant",
-    description: "A comprehensive AI-driven ecosystem designed to streamline daily life. Seamlessly integrated with the Esqyra Watch, the application delivers complete information through fluid voice and chat interactions. It merges intelligent task management with proactive health and productivity insights, offering personalized recommendations, real-time location tracking, and local weather updates. The system also features a curated news aggregator\u2014covering politics, social trends, and global events\u2014all visualized within a sleek, fully responsive dashboard.",
+    description: "AI assistant app that pairs with the Esqyra Watch, the application delivers complete information through fluid voice and chat interactions. It merges intelligent task management with proactive health and productivity insights, offering personalized recommendations, real-time location tracking, and local weather updates. The system also features a curated news aggregator\u2014covering politics, social trends, and global events\u2014all visualized within a sleek, fully responsive dashboard.",
     techStack: ["React Native", "TypeScript", "REST API", "MySQL", "Tailwind CSS"],
     image: "/qyra.webp",
     githubUrl: "https://github.com/M-zohaib-developer/",
@@ -52,6 +56,7 @@ var projects = [
   },
   {
     id: "5",
+    role: "Solo \u2014 personal project",
     summary: "Freelance marketplace with Casbin-based RBAC",
     title: "FreelanceHub Marketplace",
     description: "Full-stack freelance marketplace platform connecting clients with freelancers. Features complete project lifecycle management from posting to payment, with advanced Casbin-based RBAC system for three user roles (CLIENT, FREELANCER, ADMIN). Includes project bidding workflow, proposal management, contract execution, secure JWT authentication, and role-specific dashboards. Built with MVC architecture, complex relational database with 8 models using Prisma ORM, and responsive UI for seamless user experience across all roles.",
@@ -61,6 +66,7 @@ var projects = [
   },
   {
     id: "6",
+    role: "Solo \u2014 university project",
     summary: "Full-stack event planning and registration platform",
     title: "Events Management System",
     description: "Event Management System is a full-stack web application designed to simplify the process of planning and managing events. The platform allows organizers to create events, manage schedules, register participants, track attendees, and handle event-related operations in an efficient way. Users can browse upcoming events, register online, and receive real-time updates. Admins or organizers can manage event details, monitor registrations, and control permissions based on user roles. The system focuses on performance, usability, and scalability, making event coordination easier for both organizers and participants.",
@@ -115,14 +121,14 @@ var experiences = [
     company: "MoboCheck Web Platform (Mobocheck)",
     role: "Full Stack Developer",
     period: "2025 \u2014 Present",
-    description: "Spearheading production web platform development with cutting-edge enterprise features using React.js, Node.js, and MySQL.",
+    description: "Working on the MoboCheck production platform with React, Node.js, and MySQL.",
     responsibilities: [
-      "Engineered high-performance full-stack web applications using React.js for frontend and Node.js for backend services",
-      "Architected and deployed Casbin-based authorization framework enforcing granular RBAC/ABAC policies across mission-critical platform modules",
-      "Pioneered custom permission middleware layer on React frontend, enabling real-time access control and dynamic component rendering",
-      "Designed scalable UI architecture with Redux Toolkit, achieving predictable state management and measurable performance gains",
-      "Crafted robust RESTful APIs with Node.js and optimized MySQL schemas for high-traffic production workloads",
-      "Drove cross-functional collaboration with backend teams, ensuring seamless API integration and enterprise-grade data security"
+      "Build full-stack features using React.js for frontend and Node.js for backend services",
+      "Set up Casbin-based authorization with RBAC/ABAC policies across platform modules",
+      "Wrote a permission layer on the React side so components render based on the permissions the backend sends",
+      "Structured app state with Redux Toolkit",
+      "Build REST APIs in Node.js and work on the MySQL schema",
+      "Work with the backend team on API contracts and integration"
     ]
   },
   {
@@ -155,12 +161,12 @@ var experiences = [
     company: "QYRA AI Assistance (Mobocheck)",
     role: "React Native Developer",
     period: "2025 \u2014 2026",
-    description: "Led end-to-end mobile development for an innovative AI-powered cross-platform application.",
+    description: "Built the mobile app for an AI assistant on iOS and Android.",
     responsibilities: [
-      "Orchestrated React Native development for iOS and Android, overseeing architecture design through production deployment",
+      "Built the React Native app for iOS and Android, from architecture to release",
       "Built the AI assistant's conversational core using Retrieval-Augmented Generation (RAG) for context-aware responses",
       "Integrated ElevenLabs for natural, real-time voice interaction, powering the app's voice assistant capabilities",
-      "Maximized runtime performance by strategically implementing React.memo, useMemo, and useCallback, eliminating unnecessary re-renders",
+      "Cut unnecessary re-renders with React.memo, useMemo, and useCallback",
       "Integrated AI-powered capabilities through RESTful APIs with comprehensive error handling and intelligent loading states",
       "Partnered with backend engineering teams to align API contracts and deliver fluid real-time user experiences"
     ]
@@ -185,19 +191,19 @@ var experiences = [
     company: "Event Management System (University Project)",
     role: "Full Stack Developer",
     period: "2024 \u2014 2025",
-    description: "Independently developed comprehensive full-stack platform for streamlined event operations.",
+    description: "Built an event management platform on my own as a university project.",
     responsibilities: [
-      "Built feature-rich event management system with intuitive event creation and participant registration workflows",
-      "Developed scalable REST API architecture and normalized MySQL database schema from ground up",
-      "Delivered responsive, type-safe frontend using React.js with TypeScript for enhanced code reliability",
-      "Owned complete SDLC from requirements gathering through successful production deployment"
+      "Built event creation and participant registration flows",
+      "Designed the REST API and a normalized MySQL schema",
+      "Built the frontend in React with TypeScript",
+      "Handled everything from requirements to deployment"
     ]
   }
 ];
 var personalInfo = {
   name: "Muhammad Zohaib",
   role: "Full Stack Developer",
-  bio: "Software developer with 1+ year of hands-on experience building modern web and mobile applications. Focused on writing clean, maintainable code and creating intuitive user interfaces. Experienced in the React ecosystem including React, Next.js, React Native, along with backend development using Node.js. Focused on delivering scalable, user-friendly solutions.",
+  bio: "Software developer with 1+ year of hands-on experience building modern web and mobile applications. Experienced in the React ecosystem including React, Next.js, React Native, along with backend development using Node.js. Most of my recent work is on role-based back-office systems and AI-powered products.",
   email: "mzohaibbhatti604@gmail.com",
   github: "https://github.com/M-zohaib-developer",
   linkedin: "https://www.linkedin.com/in/muhammad-zohaib-1a6972234/",
