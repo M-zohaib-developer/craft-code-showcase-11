@@ -12,7 +12,7 @@ const Projects = () => {
           <p className="eyebrow mb-3">Projects</p>
           <h2 id="projects-title" className="section-title">Featured projects</h2>
           <p className="section-subtitle">
-            Production platforms and personal builds, with the problem each one solves and the stack behind it.
+            Production platforms first, followed by application, practice, and university projects from 2 years of hands-on development.
           </p>
         </Reveal>
 
@@ -20,15 +20,15 @@ const Projects = () => {
         <Reveal className="mt-12">
           <article className="surface surface-hover grid overflow-hidden md:grid-cols-2">
             <div className="border-b border-border bg-secondary md:border-b-0 md:border-r">
-              <img
-                src={featured.image}
-                alt={`${featured.title} dashboard screenshot`}
-                width={826}
-                height={431}
-                loading="lazy"
-                decoding="async"
-                className="aspect-[16/10] h-full w-full object-cover object-top"
-              />
+                <img
+                  src={featured.image}
+                  alt={`${featured.title} dashboard screenshot`}
+                  width={826}
+                  height={431}
+                  loading="lazy"
+                  decoding="async"
+                  className="aspect-[16/10] h-full w-full bg-secondary object-contain p-3"
+                />
             </div>
             <div className="flex flex-col p-6 md:p-8">
               <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">Featured · Production</p>
@@ -56,7 +56,7 @@ const Projects = () => {
                       height={606}
                       loading="lazy"
                       decoding="async"
-                      className="aspect-[16/9] w-full object-cover object-top"
+                      className="aspect-[16/9] w-full bg-secondary object-contain p-3"
                     />
                   ) : (
                     <div aria-hidden="true" className="bg-grid flex aspect-[16/9] items-center justify-center">
