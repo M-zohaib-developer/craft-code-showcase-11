@@ -29,11 +29,11 @@ const Projects = ({ standalone = false, limit }: ProjectsProps) => {
           </p>
         </Reveal>
 
-        <div className="mt-12 divide-y divide-border border-y border-border">
+        <div className="mt-12 border-t border-border">
           {list.map((p, i) => (
-            <Reveal key={p.id}>
+            <div key={p.id} className="border-b border-border bg-background md:sticky md:top-16 md:min-h-[calc(100svh-4rem)] md:flex md:items-center">
               <ProjectRow project={p} index={i} standalone={standalone} />
-            </Reveal>
+            </div>
           ))}
         </div>
 
@@ -51,16 +51,16 @@ const ProjectRow = ({ project: p, index, standalone }: { project: Project; index
   const H = standalone ? "h2" : "h3";
   const imageClass =
     p.imageFit === "contain"
-      ? "aspect-[16/10] w-full bg-secondary object-contain p-4"
+      ? "aspect-[16/10] w-full bg-secondary object-contain"
       : "aspect-[16/10] w-full object-cover object-top";
 
   return (
-    <article className="grid gap-6 py-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-10">
+    <article className="grid w-full gap-6 py-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-10">
       <div className="overflow-hidden rounded-lg border border-border bg-secondary">
         {p.image ? (
           <img
             src={p.image}
-            alt={`Screenshot of ${p.title}`}
+            alt={`${p.title} project image`}
             width={1200}
             height={606}
             loading="lazy"

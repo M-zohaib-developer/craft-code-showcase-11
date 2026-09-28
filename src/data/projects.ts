@@ -1,3 +1,7 @@
+import qyraImage from "@/assets/qyra-ai-assistant.png.asset.json";
+import freelanceImage from "@/assets/freelancehub-marketplace.png.asset.json";
+import eventsImage from "@/assets/events-management-system.png.asset.json";
+
 export interface Project {
   id: string;
   title: string;
@@ -40,7 +44,7 @@ export const projects: Project[] = [
     summary: "AI-powered social media scheduling and publishing platform",
     title: "Postsiva",
     description: "Postsiva is a unified AI-powered social media management platform that lets users compose, schedule, and publish content across LinkedIn, Facebook, Instagram, TikTok, and YouTube from a single workspace. The platform features an integrated AI toolkit for text-to-image generation, caption and content editing, and automated thumbnail creation, alongside a unified inbox, live network previews, and multi-workspace support for managing multiple brands or clients from one dashboard.",
-    techStack: ["React", "Next.js", "TypeScript", "Node.js", "AI Integration", "Tailwind CSS"],
+    techStack: ["React", "Next.js", "TypeScript", "Node.js", "Social media scheduling", "AI Integration", "Tailwind CSS"],
     image: "/postsiva.webp",
     githubUrl: "https://github.com/M-zohaib-developer/",
     liveUrl: "https://www.postsiva.com",
@@ -73,8 +77,8 @@ export const projects: Project[] = [
     summary: "Cross-platform AI assistant with voice and chat",
     title: "Qyra AI Assistant",
     description: "AI assistant app that pairs with the Esqyra Watch, the application delivers complete information through fluid voice and chat interactions. It merges intelligent task management with proactive health and productivity insights, offering personalized recommendations, real-time location tracking, and local weather updates. The system also features a curated news aggregator—covering politics, social trends, and global events—all visualized within a sleek, fully responsive dashboard.",
-    techStack: ["React Native", "TypeScript", "REST API", "MySQL", "Mobile UI"],
-    image: "/project-qyra-ai-assistant.svg",
+    techStack: ["React Native", "TypeScript", "REST API", "MySQL", "Voice assistant", "Mobile UI"],
+    image: qyraImage.url,
     imageFit: "contain",
   },
   {
@@ -83,8 +87,8 @@ export const projects: Project[] = [
     summary: "Freelance marketplace with Casbin-based RBAC",
     title: "FreelanceHub Marketplace",
     description: "Full-stack freelance marketplace platform connecting clients with freelancers. Features complete project lifecycle management from posting to payment, with advanced Casbin-based RBAC system for three user roles (CLIENT, FREELANCER, ADMIN). Includes project bidding workflow, proposal management, contract execution, secure JWT authentication, and role-specific dashboards. Built with MVC architecture, complex relational database with 8 models using Prisma ORM, and responsive UI for seamless user experience across all roles.",
-    techStack: ["React", "TypeScript", "Node.js", "Express", "MySQL", "Prisma", "Casbin", "Tailwind CSS"],
-    image: "/project-freelancehub-marketplace.svg",
+    techStack: ["React", "TypeScript", "Node.js", "Express", "MySQL", "Prisma", "Casbin", "Freelance marketplace", "Tailwind CSS"],
+    image: freelanceImage.url,
     imageFit: "contain",
   },
   {
@@ -93,8 +97,8 @@ export const projects: Project[] = [
     summary: "Full-stack event planning and registration platform",
     title: "Events Management System",
     description: "Event Management System is a full-stack web application designed to simplify the process of planning and managing events. The platform allows organizers to create events, manage schedules, register participants, track attendees, and handle event-related operations in an efficient way. Users can browse upcoming events, register online, and receive real-time updates. Admins or organizers can manage event details, monitor registrations, and control permissions based on user roles. The system focuses on performance, usability, and scalability, making event coordination easier for both organizers and participants.",
-    techStack: ["React", "Firebase", "Redux", "WebSocket", "Material UI"],
-    image: "/project-events-management-system.svg",
+    techStack: ["React", "Firebase", "Redux", "WebSocket", "Event registration", "Material UI"],
+    image: eventsImage.url,
     imageFit: "contain",
   },
 ];
@@ -278,8 +282,8 @@ export const personalInfo = {
   role: "Full Stack Developer",
   bio: "Software developer with 2 years of hands-on experience building modern web and mobile applications. Experienced in the React ecosystem including React, Next.js, React Native, along with backend development using Node.js. Most of my recent work is on role-based back-office systems, production marketplaces, dynamic CMS websites, and AI-powered products.",
   email: "mzohaibbhatti604@gmail.com",
-  whatsapp: "03266",
-  whatsappUrl: "https://wa.me/923266",
+  whatsapp: "03266902685",
+  whatsappUrl: "https://wa.me/923266902685",
   github: "https://github.com/M-zohaib-developer",
   linkedin: "https://www.linkedin.com/in/muhammad-zohaib-1a6972234/",
   location: "Lahore, Pakistan",

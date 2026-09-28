@@ -2,8 +2,11 @@
 - [x] Redesign: premium dark engineering theme, semantic sections, one-time reveals
 - [x] Technical SEO: meta, OG image, JSON-LD, sitemap, robots, favicon, manifest
 - [x] Image optimization (WebP)
-- [ ] Brief v2: real /projects route + router-based nav with active state
+- [x] Brief v2: real /projects route + router-based nav with active state
+- [x] Per-route title/description/canonical; sitemap includes /projects
+- [x] Use supplied Qyra, FreelanceHub, and Events images; check Postsiva image
+- [x] Correct WhatsApp contact and add relevant project search terms
+- [x] Show projects one by one as the reader scrolls on desktop
 - [ ] Brief v2: plainer, developer-voice copy (no buzzwords, nothing invented)
-- [ ] Per-route title/description/canonical; sitemap includes /projects
 - [ ] CI/CD audit (repo workflows)
-- [ ] Verify build, lint, tests, responsive, direct /projects refresh
+- [ ] Verify preview, responsive layout, direct /projects refresh
