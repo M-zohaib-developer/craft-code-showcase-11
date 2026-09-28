@@ -1,0 +1,30 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" rx="34" fill="#071014"/>
+  <rect x="56" y="54" width="1088" height="642" rx="28" fill="#0B151B" stroke="#1F3A44"/>
+  <rect x="112" y="116" width="500" height="518" rx="22" fill="#101D24" stroke="#24434D"/>
+  <text x="150" y="178" fill="#22D3EE" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Qyra AI Assistant</text>
+  <text x="150" y="220" fill="#A7B6C2" font-family="Inter, Arial, sans-serif" font-size="17">Voice, chat, weather, health and productivity insights</text>
+  <rect x="150" y="276" width="382" height="76" rx="18" fill="#13262E" stroke="#294A55"/>
+  <circle cx="190" cy="314" r="18" fill="#22D3EE"/>
+  <text x="224" y="307" fill="#EAF7FA" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">How can I help today?</text>
+  <text x="224" y="330" fill="#91A5B2" font-family="Inter, Arial, sans-serif" font-size="13">Ask by voice or message</text>
+  <rect x="150" y="378" width="170" height="112" rx="18" fill="#12232B" stroke="#294A55"/>
+  <text x="174" y="416" fill="#EAF7FA" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Weather</text>
+  <text x="174" y="452" fill="#22D3EE" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">28 C</text>
+  <rect x="342" y="378" width="190" height="112" rx="18" fill="#12232B" stroke="#294A55"/>
+  <text x="366" y="416" fill="#EAF7FA" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Health score</text>
+  <text x="366" y="452" fill="#22D3EE" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">86%</text>
+  <rect x="150" y="516" width="382" height="54" rx="16" fill="#0F2028" stroke="#294A55"/>
+  <text x="174" y="550" fill="#A7B6C2" font-family="Inter, Arial, sans-serif" font-size="15">Personalized daily summary ready</text>
+  <rect x="704" y="98" width="260" height="554" rx="42" fill="#05090C" stroke="#2F5661" stroke-width="8"/>
+  <rect x="728" y="136" width="212" height="478" rx="28" fill="#F8FBFD"/>
+  <rect x="750" y="164" width="168" height="18" rx="9" fill="#DDE7EB"/>
+  <rect x="750" y="214" width="168" height="92" rx="18" fill="#DDF8FC"/>
+  <text x="772" y="252" fill="#07323B" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Qyra</text>
+  <text x="772" y="278" fill="#25606B" font-family="Inter, Arial, sans-serif" font-size="12">AI assistant is online</text>
+  <rect x="750" y="330" width="168" height="56" rx="14" fill="#EEF4F6"/>
+  <rect x="750" y="404" width="78" height="86" rx="14" fill="#E8FAFD"/>
+  <rect x="840" y="404" width="78" height="86" rx="14" fill="#EEF4F6"/>
+  <rect x="750" y="510" width="168" height="48" rx="14" fill="#07323B"/>
+  <text x="788" y="541" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Ask Qyra</text>
+</svg>

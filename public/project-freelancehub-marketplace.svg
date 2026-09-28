@@ -1,0 +1,33 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" rx="34" fill="#071014"/>
+  <rect x="60" y="58" width="1080" height="634" rx="28" fill="#0B151B" stroke="#203943"/>
+  <rect x="96" y="96" width="1008" height="70" rx="18" fill="#111F27" stroke="#274651"/>
+  <text x="132" y="140" fill="#22D3EE" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">FreelanceHub Marketplace</text>
+  <rect x="824" y="116" width="90" height="28" rx="14" fill="#18313A"/>
+  <rect x="930" y="116" width="128" height="28" rx="14" fill="#22D3EE"/>
+  <text x="954" y="135" fill="#062A32" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Post Project</text>
+  <rect x="96" y="202" width="304" height="404" rx="22" fill="#101D24" stroke="#274651"/>
+  <text x="128" y="250" fill="#EAF7FA" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Client dashboard</text>
+  <rect x="128" y="286" width="236" height="74" rx="16" fill="#132630"/>
+  <text x="150" y="316" fill="#A7B6C2" font-family="Inter, Arial, sans-serif" font-size="13">Open projects</text>
+  <text x="150" y="344" fill="#22D3EE" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">24</text>
+  <rect x="128" y="388" width="236" height="42" rx="12" fill="#0E1A21" stroke="#274651"/>
+  <rect x="128" y="448" width="236" height="42" rx="12" fill="#0E1A21" stroke="#274651"/>
+  <rect x="128" y="508" width="236" height="42" rx="12" fill="#0E1A21" stroke="#274651"/>
+  <rect x="448" y="202" width="304" height="404" rx="22" fill="#101D24" stroke="#274651"/>
+  <text x="480" y="250" fill="#EAF7FA" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Proposal flow</text>
+  <path d="M518 346H682" stroke="#22D3EE" stroke-width="6" stroke-linecap="round"/>
+  <path d="M518 416H682" stroke="#22D3EE" stroke-width="6" stroke-linecap="round"/>
+  <path d="M518 486H682" stroke="#22D3EE" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="518" cy="346" r="22" fill="#18313A" stroke="#22D3EE" stroke-width="4"/>
+  <circle cx="600" cy="416" r="22" fill="#18313A" stroke="#22D3EE" stroke-width="4"/>
+  <circle cx="682" cy="486" r="22" fill="#18313A" stroke="#22D3EE" stroke-width="4"/>
+  <rect x="800" y="202" width="304" height="404" rx="22" fill="#101D24" stroke="#274651"/>
+  <text x="832" y="250" fill="#EAF7FA" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Role access</text>
+  <rect x="832" y="294" width="108" height="92" rx="18" fill="#132630"/>
+  <rect x="964" y="294" width="108" height="92" rx="18" fill="#132630"/>
+  <rect x="832" y="414" width="240" height="92" rx="18" fill="#132630"/>
+  <text x="858" y="346" fill="#22D3EE" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">CLIENT</text>
+  <text x="982" y="346" fill="#22D3EE" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">ADMIN</text>
+  <text x="906" y="466" fill="#22D3EE" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">FREELANCER</text>
+</svg>

@@ -49,6 +49,11 @@ const Projects = ({ standalone = false, limit }: ProjectsProps) => {
 
 const ProjectRow = ({ project: p, index, standalone }: { project: Project; index: number; standalone: boolean }) => {
   const H = standalone ? "h2" : "h3";
+  const imageClass =
+    p.imageFit === "contain"
+      ? "aspect-[16/10] w-full bg-secondary object-contain p-4"
+      : "aspect-[16/10] w-full object-cover object-top";
+
   return (
     <article className="grid gap-6 py-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-10">
       <div className="overflow-hidden rounded-lg border border-border bg-secondary">
@@ -60,7 +65,7 @@ const ProjectRow = ({ project: p, index, standalone }: { project: Project; index
             height={606}
             loading="lazy"
             decoding="async"
-            className="aspect-[16/10] w-full object-cover object-top"
+            className={imageClass}
           />
         ) : (
           <div aria-hidden="true" className="bg-grid flex aspect-[16/10] items-center justify-center">

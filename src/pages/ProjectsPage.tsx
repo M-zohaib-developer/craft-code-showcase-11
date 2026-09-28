@@ -8,7 +8,7 @@ import { usePageMeta } from "@/hooks/use-page-meta";
 const ProjectsPage = () => {
   usePageMeta(
     "Projects | Muhammad Zohaib",
-    "Projects by Muhammad Zohaib: MoboCheck, Postsiva, Automatev, Qyra and more — role, stack, and the technical work behind each.",
+    "Projects by Muhammad Zohaib: MoboCheck, Cartlow, Postsiva, Automatev, Enrichers, Qyra, FreelanceHub, and Events Management System from 2 years of full-stack development.",
     "/projects",
   );
   useEffect(() => window.scrollTo(0, 0), []);

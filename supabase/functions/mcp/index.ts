@@ -24,6 +24,17 @@ var projects = [
   {
     id: "2",
     role: "Full Stack Developer",
+    summary: "E-commerce marketplace for electronics, gift cards, app downloads, and customer deals",
+    title: "Cartlow",
+    description: "Production e-commerce marketplace experience focused on electronics, gadgets, gift cards, app-driven shopping, offers, customer trust, and multi-region storefront flows. The platform includes product discovery, category navigation, promotional banners, social proof, customer review sections, app download flows, support pages, and marketplace partner pathways designed for a polished shopping experience.",
+    techStack: ["E-commerce", "Frontend", "Responsive UI", "Marketplace", "SEO", "Performance", "CI/CD", "Deployment"],
+    image: "https://cartlow.com/web-assets/featured-img/cartlow-home-intl-en.jpg",
+    imageFit: "contain",
+    liveUrl: "https://cartlow.com/"
+  },
+  {
+    id: "3",
+    role: "Full Stack Developer",
     summary: "AI-powered social media scheduling and publishing platform",
     title: "Postsiva",
     description: "Postsiva is a unified AI-powered social media management platform that lets users compose, schedule, and publish content across LinkedIn, Facebook, Instagram, TikTok, and YouTube from a single workspace. The platform features an integrated AI toolkit for text-to-image generation, caption and content editing, and automated thumbnail creation, alongside a unified inbox, live network previews, and multi-workspace support for managing multiple brands or clients from one dashboard.",
@@ -33,7 +44,7 @@ var projects = [
     liveUrl: "https://www.postsiva.com"
   },
   {
-    id: "3",
+    id: "4",
     role: "Full Stack Developer",
     summary: "Marketing and portfolio website for an AI automation agency",
     title: "Automatev",
@@ -44,35 +55,45 @@ var projects = [
     liveUrl: "https://automatev.com"
   },
   {
-    id: "4",
+    id: "5",
+    role: "Full Stack Developer",
+    summary: "Dynamic investment and brokerage platform powered by CMS-managed content",
+    title: "Enrichers Investment Group",
+    description: "Production investment and brokerage website for PSX and PMEX services in Pakistan. The platform is built with fully dynamic, CMS-managed page content, media, SEO metadata, navigation, service sections, latest insights, FAQs, consultation forms, and investment pages, so images and text can be managed from the backend without hard-coded page updates.",
+    techStack: ["Next.js", "TypeScript", "Payload CMS", "Dynamic Content", "SEO", "Forms"],
+    image: "https://enrichers.innovidio.com/api/media/file/hero-5-scaled-1200x630.webp",
+    githubUrl: "https://github.com/M-zohaib-developer/",
+    liveUrl: "https://enrichers.innovidio.com/"
+  },
+  {
+    id: "6",
     role: "React Native Developer",
     summary: "Cross-platform AI assistant with voice and chat",
     title: "Qyra AI Assistant",
     description: "AI assistant app that pairs with the Esqyra Watch, the application delivers complete information through fluid voice and chat interactions. It merges intelligent task management with proactive health and productivity insights, offering personalized recommendations, real-time location tracking, and local weather updates. The system also features a curated news aggregator\u2014covering politics, social trends, and global events\u2014all visualized within a sleek, fully responsive dashboard.",
-    techStack: ["React Native", "TypeScript", "REST API", "MySQL", "Tailwind CSS"],
-    image: "/qyra.webp",
-    githubUrl: "https://github.com/M-zohaib-developer/",
-    liveUrl: "https://app.esqyra.com"
+    techStack: ["React Native", "TypeScript", "REST API", "MySQL", "Mobile UI"],
+    image: "/project-qyra-ai-assistant.svg",
+    imageFit: "contain"
   },
   {
-    id: "5",
+    id: "7",
     role: "Solo \u2014 personal project",
     summary: "Freelance marketplace with Casbin-based RBAC",
     title: "FreelanceHub Marketplace",
     description: "Full-stack freelance marketplace platform connecting clients with freelancers. Features complete project lifecycle management from posting to payment, with advanced Casbin-based RBAC system for three user roles (CLIENT, FREELANCER, ADMIN). Includes project bidding workflow, proposal management, contract execution, secure JWT authentication, and role-specific dashboards. Built with MVC architecture, complex relational database with 8 models using Prisma ORM, and responsive UI for seamless user experience across all roles.",
     techStack: ["React", "TypeScript", "Node.js", "Express", "MySQL", "Prisma", "Casbin", "Tailwind CSS"],
-    image: "/freelancer.webp",
-    githubUrl: "https://github.com/M-zohaib-developer/"
+    image: "/project-freelancehub-marketplace.svg",
+    imageFit: "contain"
   },
   {
-    id: "6",
+    id: "8",
     role: "Solo \u2014 university project",
     summary: "Full-stack event planning and registration platform",
     title: "Events Management System",
     description: "Event Management System is a full-stack web application designed to simplify the process of planning and managing events. The platform allows organizers to create events, manage schedules, register participants, track attendees, and handle event-related operations in an efficient way. Users can browse upcoming events, register online, and receive real-time updates. Admins or organizers can manage event details, monitor registrations, and control permissions based on user roles. The system focuses on performance, usability, and scalability, making event coordination easier for both organizers and participants.",
     techStack: ["React", "Firebase", "Redux", "WebSocket", "Material UI"],
-    image: "",
-    githubUrl: "https://github.com/M-zohaib-developer/"
+    image: "/project-events-management-system.svg",
+    imageFit: "contain"
   }
 ];
 var skillCategories = [
@@ -107,6 +128,9 @@ var skillCategories = [
       { name: "Git, GitHub" },
       { name: "VS Code" },
       { name: "Figma" },
+      { name: "CI/CD Pipeline" },
+      { name: "GitHub Actions" },
+      { name: "Deployment" },
       { name: "Vercel" },
       { name: "Netlify" },
       { name: "AWS, Digital Ocean" },
@@ -133,6 +157,19 @@ var experiences = [
   },
   {
     id: "2",
+    company: "Cartlow E-commerce Marketplace",
+    role: "Full Stack Developer",
+    period: "2026",
+    description: "Contributed to a production e-commerce marketplace experience for electronics, gadgets, gift cards, offers, customer trust, app download flows, and multi-region storefront navigation.",
+    responsibilities: [
+      "Worked on responsive marketplace UI sections for product discovery, category navigation, promotions, and customer-facing shopping flows",
+      "Helped shape storefront experiences for offers, app download CTAs, customer proof sections, support links, and partner pathways",
+      "Focused on production-ready frontend quality, reusable interface patterns, search-friendly page structure, and deployment-ready delivery",
+      "Improved content presentation and user flow clarity across desktop and mobile shopping journeys"
+    ]
+  },
+  {
+    id: "3",
     company: "Postsiva \u2014 AI-Powered Social Media Management Platform (Automatev)",
     role: "Full Stack Developer",
     period: "2026",
@@ -145,7 +182,7 @@ var experiences = [
     ]
   },
   {
-    id: "3",
+    id: "4",
     company: "Automatev \u2014 Agency Marketing & Portfolio Website (Automatev)",
     role: "Full Stack Developer",
     period: "2026",
@@ -157,7 +194,21 @@ var experiences = [
     ]
   },
   {
-    id: "4",
+    id: "5",
+    company: "Enrichers Investment Group (Innovidio)",
+    role: "Full Stack Developer",
+    period: "2026",
+    description: "Built and delivered a production investment and brokerage website for PSX and PMEX services with dynamic backend-managed content.",
+    responsibilities: [
+      "Developed a fully dynamic website where homepage sections, images, service content, articles, FAQs, navigation, and SEO metadata are managed from the backend",
+      "Integrated Payload CMS-driven content workflows so non-developers can update text and media without code changes",
+      "Implemented production-ready frontend pages for investment services, consultation flows, latest insights, FAQs, and brokerage content",
+      "Configured professional SEO metadata, Open Graph sharing, structured content, and optimized media delivery for search and social previews",
+      "Built responsive layouts and reusable content sections for a polished experience across desktop and mobile devices"
+    ]
+  },
+  {
+    id: "6",
     company: "QYRA AI Assistance (Mobocheck)",
     role: "React Native Developer",
     period: "2025 \u2014 2026",
@@ -172,7 +223,7 @@ var experiences = [
     ]
   },
   {
-    id: "5",
+    id: "7",
     company: "FreelanceHub Marketplace (Personal Project)",
     role: "Full Stack Developer",
     period: "2025",
@@ -187,7 +238,7 @@ var experiences = [
     ]
   },
   {
-    id: "6",
+    id: "8",
     company: "Event Management System (University Project)",
     role: "Full Stack Developer",
     period: "2024 \u2014 2025",
@@ -203,8 +254,10 @@ var experiences = [
 var personalInfo = {
   name: "Muhammad Zohaib",
   role: "Full Stack Developer",
-  bio: "Software developer with 1+ year of hands-on experience building modern web and mobile applications. Experienced in the React ecosystem including React, Next.js, React Native, along with backend development using Node.js. Most of my recent work is on role-based back-office systems and AI-powered products.",
+  bio: "Software developer with 2 years of hands-on experience building modern web and mobile applications. Experienced in the React ecosystem including React, Next.js, React Native, along with backend development using Node.js. Most of my recent work is on role-based back-office systems, production marketplaces, dynamic CMS websites, and AI-powered products.",
   email: "mzohaibbhatti604@gmail.com",
+  whatsapp: "03266",
+  whatsappUrl: "https://wa.me/923266",
   github: "https://github.com/M-zohaib-developer",
   linkedin: "https://www.linkedin.com/in/muhammad-zohaib-1a6972234/",
   location: "Lahore, Pakistan"

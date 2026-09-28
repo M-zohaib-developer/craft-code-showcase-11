@@ -1,9 +1,10 @@
-import { Mail, Github, Linkedin, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, Github, Linkedin, MapPin, ArrowUpRight, MessageCircle } from "lucide-react";
 import { personalInfo } from "@/data/projects";
 import Reveal from "@/components/Reveal";
 
 const links = [
   { icon: Mail, label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}`, external: false },
+  { icon: MessageCircle, label: "WhatsApp", value: personalInfo.whatsapp, href: personalInfo.whatsappUrl, external: true },
   { icon: Github, label: "GitHub", value: "M-zohaib-developer", href: personalInfo.github, external: true },
   { icon: Linkedin, label: "LinkedIn", value: "Muhammad Zohaib", href: personalInfo.linkedin, external: true },
 ];
@@ -17,8 +18,8 @@ const Contact = () => (
             <p className="eyebrow mb-3">Contact</p>
             <h2 id="contact-title" className="section-title">Let's work together</h2>
             <p className="mt-4 max-w-md leading-relaxed text-muted-foreground">
-              Open to full-time roles and freelance projects in full-stack web and mobile development. Email is the
-              fastest way to reach me.
+              Open to full-time roles and freelance projects in full-stack web and mobile development. Email and
+              WhatsApp are the fastest ways to reach me.
             </p>
             <a href={`mailto:${personalInfo.email}`} className="btn-primary mt-8">
               <Mail size={16} aria-hidden="true" /> Email Muhammad Zohaib
