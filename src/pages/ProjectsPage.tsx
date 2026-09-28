@@ -3,6 +3,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import Projects from "@/sections/Projects";
+import Skills from "@/sections/Skills";
+import Contact from "@/sections/Contact";
 import { usePageMeta } from "@/hooks/use-page-meta";
 
 const ProjectsPage = () => {
@@ -11,7 +13,9 @@ const ProjectsPage = () => {
     "Projects by Muhammad Zohaib: MoboCheck, Cartlow, Postsiva, Automatev, Enrichers, Qyra, FreelanceHub, and Events Management System from 2 years of full-stack development.",
     "/projects",
   );
-  useEffect(() => window.scrollTo(0, 0), []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -22,6 +26,8 @@ const ProjectsPage = () => {
       <Navbar />
       <main id="main" className="pt-16">
         <Projects standalone />
+        <Skills />
+        <Contact />
       </main>
       <Footer />
     </div>

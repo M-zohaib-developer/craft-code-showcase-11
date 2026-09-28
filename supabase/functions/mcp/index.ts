@@ -9,9 +9,6 @@ import { defineMcp } from "npm:@lovable.dev/mcp-js@0.24.0";
 import { defineTool } from "npm:@lovable.dev/mcp-js@0.24.0";
 
 // src/data/projects.ts
-import qyraImage from "npm:@/assets/qyra-ai-assistant.webp.asset.json";
-import freelanceImage from "npm:@/assets/freelancehub-marketplace.webp.asset.json";
-import eventsImage from "npm:@/assets/events-management-system.webp.asset.json";
 import postsivaImage from "npm:@/assets/postsiva.webp.asset.json";
 var projects = [
   {
@@ -76,7 +73,7 @@ var projects = [
     title: "Qyra AI Assistant",
     description: "Built the React Native app for an AI assistant paired with the Esqyra Watch. It supports voice and chat, task management, health and productivity information, location, weather, and news. The mobile interface brings these features together in one place.",
     techStack: ["React Native", "TypeScript", "REST API", "MySQL", "Voice assistant", "Mobile UI"],
-    image: qyraImage.url,
+    image: "/qyra.png",
     imageFit: "contain"
   },
   {
@@ -86,7 +83,7 @@ var projects = [
     title: "FreelanceHub Marketplace",
     description: "Personal project connecting clients and freelancers. Clients can post projects, freelancers can submit proposals, and both can manage contracts and payments. I built separate workflows for clients, freelancers, and admins, with JWT authentication and Casbin permissions. The backend uses Express, MySQL, and Prisma.",
     techStack: ["React", "TypeScript", "Node.js", "Express", "MySQL", "Prisma", "Casbin", "Freelance marketplace", "Tailwind CSS"],
-    image: freelanceImage.url,
+    image: "/project-freelancehub-marketplace.png",
     imageFit: "contain"
   },
   {
@@ -96,7 +93,7 @@ var projects = [
     title: "Events Management System",
     description: "University project for planning events and handling registration. Organizers can create events, set schedules, monitor registrations, and track attendees. Visitors can browse upcoming events and register online; admins and organizers have separate permissions for managing event details.",
     techStack: ["React", "Firebase", "Redux", "WebSocket", "Event registration", "Material UI"],
-    image: eventsImage.url,
+    image: "/event.png",
     imageFit: "contain"
   }
 ];
@@ -260,7 +257,7 @@ var personalInfo = {
   role: "Full Stack Developer",
   bio: "Software developer with 2 years of hands-on experience building modern web and mobile applications. Experienced in the React ecosystem including React, Next.js, React Native, along with backend development using Node.js. Most of my recent work is on role-based back-office systems, production marketplaces, dynamic CMS websites, and AI-powered products.",
   email: "mzohaibbhatti604@gmail.com",
-  whatsapp: "03266902685",
+  whatsapp: "03266903685",
   whatsappUrl: "https://wa.me/923266902685",
   github: "https://github.com/M-zohaib-developer",
   linkedin: "https://www.linkedin.com/in/muhammad-zohaib-1a6972234/",

@@ -37,7 +37,7 @@ const Index = () => {
         <Hero />
         <About />
         <Experience />
-        <Projects limit={3} />
+        <Projects limit={4} />
         <Skills />
         <Contact />
       </main>
