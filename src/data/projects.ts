@@ -279,7 +279,7 @@ export const personalInfo = {
   bio: "Software developer with 2 years of hands-on experience building modern web and mobile applications. Experienced in the React ecosystem including React, Next.js, React Native, along with backend development using Node.js. Most of my recent work is on role-based back-office systems, production marketplaces, dynamic CMS websites, and AI-powered products.",
   email: "mzohaibbhatti604@gmail.com",
   whatsapp: "03266903685",
-  whatsappUrl: "https://wa.me/923266902685",
+  whatsappUrl: "https://wa.me/923266903685",
   github: "https://github.com/M-zohaib-developer",
   linkedin: "https://www.linkedin.com/in/muhammad-zohaib-1a6972234/",
   location: "Lahore, Pakistan",
