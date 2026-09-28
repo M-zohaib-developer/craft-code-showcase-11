@@ -7,6 +7,6 @@
 - [x] Use all four supplied project images, optimized for the portfolio
 - [x] Correct WhatsApp contact and add relevant project search terms
 - [x] Show projects one by one as the reader scrolls on desktop
-- [ ] Brief v2: plainer, developer-voice copy (no buzzwords, nothing invented)
+- [x] Rewrite descriptions for the four supplied project images in plainer developer language
 - [x] CI/CD audit: no repository workflow files in the synced project
 - [ ] Verify preview, responsive layout, direct /projects refresh

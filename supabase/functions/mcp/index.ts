@@ -41,7 +41,7 @@ var projects = [
     role: "Full Stack Developer",
     summary: "AI-powered social media scheduling and publishing platform",
     title: "Postsiva",
-    description: "Postsiva is a unified AI-powered social media management platform that lets users compose, schedule, and publish content across LinkedIn, Facebook, Instagram, TikTok, and YouTube from a single workspace. The platform features an integrated AI toolkit for text-to-image generation, caption and content editing, and automated thumbnail creation, alongside a unified inbox, live network previews, and multi-workspace support for managing multiple brands or clients from one dashboard.",
+    description: "Postsiva brings social media drafting, scheduling, and publishing into one workspace. It supports LinkedIn, Facebook, Instagram, TikTok, and YouTube, with tools for generating images, editing captions, creating thumbnails, previewing posts, and managing multiple workspaces.",
     techStack: ["React", "Next.js", "TypeScript", "Node.js", "Social media scheduling", "AI Integration", "Tailwind CSS"],
     image: postsivaImage.url,
     githubUrl: "https://github.com/M-zohaib-developer/",
@@ -74,7 +74,7 @@ var projects = [
     role: "React Native Developer",
     summary: "Cross-platform AI assistant with voice and chat",
     title: "Qyra AI Assistant",
-    description: "AI assistant app that pairs with the Esqyra Watch, the application delivers complete information through fluid voice and chat interactions. It merges intelligent task management with proactive health and productivity insights, offering personalized recommendations, real-time location tracking, and local weather updates. The system also features a curated news aggregator\u2014covering politics, social trends, and global events\u2014all visualized within a sleek, fully responsive dashboard.",
+    description: "Built the React Native app for an AI assistant paired with the Esqyra Watch. It supports voice and chat, task management, health and productivity information, location, weather, and news. The mobile interface brings these features together in one place.",
     techStack: ["React Native", "TypeScript", "REST API", "MySQL", "Voice assistant", "Mobile UI"],
     image: qyraImage.url,
     imageFit: "contain"
@@ -84,7 +84,7 @@ var projects = [
     role: "Solo \u2014 personal project",
     summary: "Freelance marketplace with Casbin-based RBAC",
     title: "FreelanceHub Marketplace",
-    description: "Full-stack freelance marketplace platform connecting clients with freelancers. Features complete project lifecycle management from posting to payment, with advanced Casbin-based RBAC system for three user roles (CLIENT, FREELANCER, ADMIN). Includes project bidding workflow, proposal management, contract execution, secure JWT authentication, and role-specific dashboards. Built with MVC architecture, complex relational database with 8 models using Prisma ORM, and responsive UI for seamless user experience across all roles.",
+    description: "Personal project connecting clients and freelancers. Clients can post projects, freelancers can submit proposals, and both can manage contracts and payments. I built separate workflows for clients, freelancers, and admins, with JWT authentication and Casbin permissions. The backend uses Express, MySQL, and Prisma.",
     techStack: ["React", "TypeScript", "Node.js", "Express", "MySQL", "Prisma", "Casbin", "Freelance marketplace", "Tailwind CSS"],
     image: freelanceImage.url,
     imageFit: "contain"
@@ -94,7 +94,7 @@ var projects = [
     role: "Solo \u2014 university project",
     summary: "Full-stack event planning and registration platform",
     title: "Events Management System",
-    description: "Event Management System is a full-stack web application designed to simplify the process of planning and managing events. The platform allows organizers to create events, manage schedules, register participants, track attendees, and handle event-related operations in an efficient way. Users can browse upcoming events, register online, and receive real-time updates. Admins or organizers can manage event details, monitor registrations, and control permissions based on user roles. The system focuses on performance, usability, and scalability, making event coordination easier for both organizers and participants.",
+    description: "University project for planning events and handling registration. Organizers can create events, set schedules, monitor registrations, and track attendees. Visitors can browse upcoming events and register online; admins and organizers have separate permissions for managing event details.",
     techStack: ["React", "Firebase", "Redux", "WebSocket", "Event registration", "Material UI"],
     image: eventsImage.url,
     imageFit: "contain"
