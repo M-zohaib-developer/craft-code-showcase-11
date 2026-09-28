@@ -1,5 +1,3 @@
-import postsivaImage from "@/assets/postsiva.webp.asset.json";
-
 export interface Project {
   id: string;
   title: string;
@@ -43,7 +41,7 @@ export const projects: Project[] = [
     title: "Postsiva",
     description: "Postsiva brings social media drafting, scheduling, and publishing into one workspace. It supports LinkedIn, Facebook, Instagram, TikTok, and YouTube, with tools for generating images, editing captions, creating thumbnails, previewing posts, and managing multiple workspaces.",
     techStack: ["React", "Next.js", "TypeScript", "Node.js", "Social media scheduling", "AI Integration", "Tailwind CSS"],
-    image: postsivaImage.url,
+    image: "/postsiva.png",
     githubUrl: "https://github.com/M-zohaib-developer/",
     liveUrl: "https://www.postsiva.com",
   },
