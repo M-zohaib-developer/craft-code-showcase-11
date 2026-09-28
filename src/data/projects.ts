@@ -1,6 +1,7 @@
-import qyraImage from "@/assets/qyra-ai-assistant.png.asset.json";
-import freelanceImage from "@/assets/freelancehub-marketplace.png.asset.json";
-import eventsImage from "@/assets/events-management-system.png.asset.json";
+import qyraImage from "@/assets/qyra-ai-assistant.webp.asset.json";
+import freelanceImage from "@/assets/freelancehub-marketplace.webp.asset.json";
+import eventsImage from "@/assets/events-management-system.webp.asset.json";
+import postsivaImage from "@/assets/postsiva.webp.asset.json";
 
 export interface Project {
   id: string;
@@ -45,7 +46,7 @@ export const projects: Project[] = [
     title: "Postsiva",
     description: "Postsiva is a unified AI-powered social media management platform that lets users compose, schedule, and publish content across LinkedIn, Facebook, Instagram, TikTok, and YouTube from a single workspace. The platform features an integrated AI toolkit for text-to-image generation, caption and content editing, and automated thumbnail creation, alongside a unified inbox, live network previews, and multi-workspace support for managing multiple brands or clients from one dashboard.",
     techStack: ["React", "Next.js", "TypeScript", "Node.js", "Social media scheduling", "AI Integration", "Tailwind CSS"],
-    image: "/postsiva.webp",
+    image: postsivaImage.url,
     githubUrl: "https://github.com/M-zohaib-developer/",
     liveUrl: "https://www.postsiva.com",
   },

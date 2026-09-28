@@ -59,7 +59,7 @@ const ProjectRow = ({ project: p, index, standalone }: { project: Project; index
       <div className="overflow-hidden rounded-lg border border-border bg-secondary">
         {p.image ? (
           <img
-            src={p.image}
+            src={p.image.startsWith("/__l5e/") && import.meta.env.DEV ? `https://id-preview--d5b63823-7709-4a2a-ba33-f184db924c5e.lovable.app${p.image}` : p.image}
             alt={`${p.title} project image`}
             width={1200}
             height={606}
