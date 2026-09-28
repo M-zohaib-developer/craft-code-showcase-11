@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import { usePageMeta } from "@/hooks/use-page-meta";
@@ -23,8 +24,15 @@ const NotFound = () => {
 };
 
 function useRobotsNoindex() {
-  const el = document.head.querySelector('meta[name="robots"]');
-  if (el) el.setAttribute("content", "noindex");
+  useEffect(() => {
+    const el = document.head.querySelector('meta[name="robots"]');
+    if (!el) return;
+    const original = el.getAttribute("content");
+    el.setAttribute("content", "noindex, follow");
+    return () => {
+      if (original) el.setAttribute("content", original);
+    };
+  }, []);
 }
 
 export default NotFound;
