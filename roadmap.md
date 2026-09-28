@@ -9,4 +9,4 @@
 - [x] Show projects one by one as the reader scrolls on desktop
 - [x] Rewrite descriptions for the four supplied project images in plainer developer language
 - [x] CI/CD audit: no repository workflow files in the synced project
-- [ ] Verify preview, responsive layout, direct /projects refresh
+- [x] Verify preview, 1280/390/320 layouts, direct /projects refresh, all four supplied images, WhatsApp link
